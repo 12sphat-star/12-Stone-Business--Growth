@@ -1,0 +1,94 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 24px 0;
+}
+
+.header-container {
+  width: min(1280px, 92%);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+}
+
+.logo-mark {
+  width: 56px;
+  height: 56px;
+  background: #00A86B;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text span {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.logo-text small {
+  letter-spacing: 4px;
+  font-size: .7rem;
+  opacity: .8;
+}
+
+nav{
+
+display:flex;
+
+gap:44px;
+
+align-items:center;
+
+}
+
+nav a {
+  color: white;
+  font-weight: 600;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #00A86B;
+}
+
+.strategy-button {
+  background: #00A86B;
+  color: white;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.strategy-button:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width:1000px) {
+  nav {
+    display: none;
+  }
+
+  .strategy-button {
+    display: none;
+  }
+}

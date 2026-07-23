@@ -1,0 +1,326 @@
+/* ==========================================
+   HVAC LANDING PAGE
+   ========================================== */
+
+.landing-hero{
+
+  min-height:92vh;
+
+  display:flex;
+
+  align-items:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  color:white;
+
+}
+
+.landing-hero .page-container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:92vh;
+
+    padding-top:140px;
+
+}
+.hero-content{
+
+  max-width:720px;
+
+}
+
+.eyebrow{
+
+display:inline-block;
+
+padding:10px 20px;
+
+border-radius:40px;
+
+background:rgba(0,168,107,.15);
+
+border:1px solid rgba(0,168,107,.45);
+
+color:#8ef0c6;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+.landing-hero h1{
+
+  font-size: clamp(3rem, 6vw, 5.4rem);
+
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  margin-bottom: 30px;
+
+  max-width: 900px;
+
+}
+
+.hero-text{
+
+font-size:1.25rem;
+
+line-height:1.8;
+
+color:#d8e3ee;
+
+margin-bottom:18px;
+
+}
+
+.hero-buttons{
+
+margin-top:45px;
+
+}
+
+.button-primary{
+
+font-size:1.05rem;
+
+}
+
+/* ===================== */
+
+.section{
+
+padding:110px 0;
+
+}
+
+.section h2{
+
+font-size:2.8rem;
+
+margin-bottom:20px;
+
+text-align:center;
+
+}
+
+.section-intro{
+
+max-width:760px;
+
+margin:0 auto 70px;
+
+text-align:center;
+
+color:#667085;
+
+font-size:1.15rem;
+
+}
+
+/* ===================== */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+}
+
+.card{
+
+background:white;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.card svg{
+
+font-size:42px;
+
+color:var(--emerald);
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-size:1.5rem;
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+color:#667085;
+
+}
+
+/* ===================== */
+
+.gray{
+
+background:#071426;
+
+color:white;
+
+}
+
+.gray p{
+
+color:#cbd5df;
+
+font-size:1.15rem;
+
+line-height:1.8;
+
+text-align:center;
+
+}
+
+/* ===================== */
+
+.pillar-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
+margin-top:70px;
+
+}
+
+.pillar{
+
+background:white;
+
+border-radius:22px;
+
+padding:45px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.pillar h3{
+
+font-size:1.6rem;
+
+margin-bottom:8px;
+
+}
+
+.pillar-subtitle{
+
+color:var(--emerald);
+
+font-weight:700;
+
+margin-bottom:25px;
+
+}
+
+.pillar li{
+
+padding:12px 0;
+
+border-bottom:1px solid #edf1f5;
+
+}
+
+/* ===================== */
+
+.landing-cta{
+
+background:#071426;
+
+color:white;
+
+text-align:center;
+
+padding:120px 0;
+
+}
+
+.landing-cta h2{
+
+font-size:3rem;
+
+margin:25px 0;
+
+}
+
+.landing-cta p{
+
+max-width:720px;
+
+margin:auto auto 45px;
+
+color:#d3dce7;
+
+font-size:1.15rem;
+
+}
+
+/* ===================== */
+
+@media(max-width:768px){
+
+.landing-hero h1{
+
+font-size:2.8rem;
+
+}
+
+.section h2{
+
+font-size:2rem;
+
+}
+
+.landing-cta h2{
+
+font-size:2.2rem;
+
+}
+
+}
