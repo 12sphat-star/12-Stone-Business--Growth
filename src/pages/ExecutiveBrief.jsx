@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function ExecutiveBrief() {
 
   const [step, setStep] = useState(0);
+  const [validationMessage, setValidationMessage] = useState("");
 const navigate = useNavigate();
  const [formData, setFormData] = useState({
   // Step 1
@@ -76,7 +77,103 @@ const handleChange = (e) => {
   });
 };
 
-  return (
+/*==========================================
+VALIDATE CURRENT STEP
+==========================================*/
+
+const validateStep = () => {
+
+  switch(step){
+
+    case 1:
+      return (
+        formData.businessName.trim() &&
+        formData.contactName.trim() &&
+        formData.email.trim() &&
+        formData.phone.trim()
+      );
+
+    case 2:
+      return (
+        formData.revenueGrowth &&
+        formData.newCustomers &&
+        formData.followUp &&
+        formData.retention &&
+        formData.referrals &&
+        formData.salesProcess
+      );
+
+    case 3:
+      return (
+        formData.websiteScore &&
+        formData.reviews &&
+        formData.response &&
+        formData.communication &&
+        formData.customerFollowup &&
+        formData.customerSatisfaction
+      );
+
+    case 4:
+      return (
+        formData.scheduling &&
+        formData.workflow &&
+        formData.automation &&
+        formData.crm &&
+        formData.reporting &&
+        formData.operationsScore
+      );
+
+    case 5:
+      return (
+        formData.recruiting &&
+        formData.retentionEmployees &&
+        formData.leadership &&
+        formData.morale &&
+        formData.benefits &&
+        formData.teamStrength
+      );
+
+    case 6:
+      return (
+        formData.websiteTech &&
+        formData.crmTech &&
+        formData.ai &&
+        formData.texting &&
+        formData.phoneSystem &&
+        formData.technologyScore
+      );
+
+    case 7:
+      return (
+        formData.primaryGoal &&
+        formData.biggestChallenge &&
+        formData.interest
+      );
+
+    default:
+      return true;
+  }
+
+};
+
+const handleNext = () => {
+
+  if (!validateStep()) {
+
+    setValidationMessage(
+  "Please complete all required questions before continuing."
+);
+
+    return;
+
+  }
+
+  setStep(step + 1);
+  setValidationMessage("");
+
+};
+
+return (
    <main className="brief-page">
 
   <div className="brief-layout">
@@ -89,15 +186,42 @@ const handleChange = (e) => {
 
       <div className="sidebar-logo">
 
-        <span className="eyebrow">
-          12 Stone Consulting
+    <span className="eyebrow">
+        Business Growth IQ™
+    </span>
+
+    <h2>
+        Executive Growth Dashboard
+    </h2>
+
+    <div className="sidebar-score">
+
+        <span className="score-number">
+            {Math.round(((step + 1) / 9) * 100)}
         </span>
 
-        <h2>
-          Executive Business Opportunity Review™
-        </h2>
+        <small>% Complete</small>
 
-      </div>
+    </div>
+
+    <div className="sidebar-mini-progress">
+
+        <div
+            className="sidebar-mini-progress-fill"
+            style={{
+                width: `${((step + 1) / 9) * 100}%`,
+            }}
+        />
+
+    </div>
+
+    <div className="sidebar-time">
+
+        ⏱ Approximately {Math.max(1,9-step)} Minutes Remaining
+
+    </div>
+
+</div>
 
       <nav className="sidebar-nav">
 
@@ -156,37 +280,110 @@ const handleChange = (e) => {
             HEADER
         ========================================== */}
 
-        <header className="brief-header">
+       <header className="brief-header">
 
-          <span className="eyebrow">
-            12 Stone Consulting
-          </span>
+    <span className="eyebrow">
+        Powered by 12 Stone Smart Websites™
+    </span>
 
-          <h1>
-            Business Growth IQ™ Assessment
-          </h1>
+    <h1>
+        Discover Hidden Revenue Already Inside Your Business
+    </h1>
 
-          <p>
-           Complete this assessment to receive your personalized
-Executive Business Opportunity Brief™.
-          </p>
+    <p className="brief-lead">
 
-        </header>
+        Complete this complimentary Business Growth IQ™ Assessment to uncover
+        revenue opportunities, operational improvements, AI automation potential,
+        and growth strategies customized for your business.
+
+    </p>
+
+    <div className="brief-trust">
+
+        <div className="trust-card">
+
+            <h3>📈 Grow</h3>
+
+            <p>
+                Find hidden revenue opportunities.
+            </p>
+
+        </div>
+
+        <div className="trust-card">
+
+            <h3>⚙ Improve</h3>
+
+            <p>
+                Streamline operations with smarter systems.
+            </p>
+
+        </div>
+
+        <div className="trust-card">
+
+            <h3>🤖 Automate</h3>
+
+            <p>
+                Discover where AI can save time and money.
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
 
         {/* ==========================================
             PROGRESS BAR
         ========================================== */}
 
-        <div className="progress-wrapper">
+       <div className="executive-progress">
 
-          <div
-            className="progress-bar"
-            style={{
-              width: `${(step / 8) * 100}%`,
-            }}
-          />
+  <div className="progress-top">
 
-        </div>
+    <div>
+
+      <span className="progress-label">
+        Business Growth IQ™ Assessment
+      </span>
+
+      <h3>
+        Step {step + 1} of 9
+      </h3>
+
+    </div>
+
+    <div className="progress-percent">
+      {Math.round(((step + 1) / 9) * 100)}%
+    </div>
+
+  </div>
+
+  <div className="progress-wrapper">
+
+    <div
+      className="progress-bar"
+      style={{
+        width: `${((step + 1) / 9) * 100}%`,
+      }}
+    />
+
+  </div>
+
+  <div className="progress-footer">
+
+    <span>
+      Estimated Time Remaining
+    </span>
+
+    <strong>
+      {Math.max(1, 9 - step)} Minutes
+    </strong>
+
+  </div>
+
+</div>
 
   
        <div className="rating-legend">
@@ -204,81 +401,159 @@ Executive Business Opportunity Brief™.
   <span>5 • Excellent</span>
 
 </div>
+
 {/* ==========================================
     STEP 0 — WELCOME
 ========================================== */}
 
 {step === 0 && (
 
+<>
+
 <section className="brief-welcome">
 
-  <div className="welcome-badge">
-    12 Stone Consulting
-  </div>
+    <span className="welcome-badge">
+        Powered by 12 Stone Smart Websites™
+    </span>
 
-  <h1>
-    Business Growth IQ™ Assessment
-  </h1>
+    <h1>
+        Discover Hidden Revenue Already Inside Your Business.
+    </h1>
 
-  <p className="welcome-lead">
-    Every business has hidden opportunities.
-    This complimentary assessment helps identify areas where your business may
-    be able to grow, improve, and strengthen.
-  </p>
+    <p className="welcome-lead">
 
-  <div className="welcome-grid">
+        Complete this complimentary Business Growth IQ™ Assessment and
+        receive a personalized Executive Business Opportunity Brief™
+        highlighting hidden revenue opportunities, operational improvements,
+        AI automation potential, employee growth strategies, and a practical
+        roadmap for growing your business.
 
-    <div className="welcome-card">
-      <h3>📈 Grow</h3>
-      <p>Revenue • Customers • Profitability</p>
+    </p>
+
+    <div className="welcome-grid">
+
+        <div className="welcome-card">
+
+            <div className="card-icon">📈</div>
+
+            <h3>Grow Revenue</h3>
+
+            <p>
+                Discover overlooked opportunities to generate additional
+                revenue from your existing business.
+            </p>
+
+        </div>
+
+        <div className="welcome-card">
+
+            <div className="card-icon">⚙️</div>
+
+            <h3>Improve Operations</h3>
+
+            <p>
+                Identify bottlenecks, inefficient workflows and opportunities
+                to improve customer experience.
+            </p>
+
+        </div>
+
+        <div className="welcome-card">
+
+            <div className="card-icon">🤖</div>
+
+            <h3>Leverage AI</h3>
+
+            <p>
+                Learn where AI and automation can reduce costs,
+                improve response times and increase profitability.
+            </p>
+
+        </div>
+
     </div>
 
-    <div className="welcome-card">
-      <h3>⚙ Improve</h3>
-      <p>Operations • AI • Customer Experience</p>
-    </div>
+    <button
+        className="begin-button"
+        onClick={() => setStep(1)}
+    >
+        Begin Business Growth IQ™ Assessment →
+    </button>
 
-    <div className="welcome-card">
-      <h3>👥 Strengthen</h3>
-      <p>Employees • Leadership • Long-Term Value</p>
-    </div>
-
-  </div>
-
-  <div className="welcome-deliverable">
-
-    <h2>
-      What You'll Receive
-    </h2>
-
-    <ul>
-
-      <li>✓ Business Growth IQ™ Summary</li>
-
-      <li>✓ Executive Business Opportunity Brief™</li>
-
-      <li>✓ Personalized Recommendations</li>
-
-      <li>✓ Complimentary Strategy Session</li>
-
-    </ul>
-
-  </div>
-
-  <button
-    className="begin-button"
-    onClick={() => setStep(1)}
-  >
-    Begin My Business Growth IQ™ Assessment →
-  </button>
-
-  <small>
-    Estimated time: 7–10 minutes
-  </small>
+    <small>
+        Average completion time:
+        <strong> 8–10 minutes</strong>
+    </small>
 
 </section>
 
+<section className="deliverables-panel">
+
+    <div className="deliverables-header">
+
+        <span className="deliverables-badge">
+            Included With Your Assessment
+        </span>
+
+        <h2>
+            Your Executive Business Growth Package™
+        </h2>
+
+        <p>
+            Every completed assessment generates a customized business growth
+            analysis designed to help identify opportunities, prioritize
+            improvements, and accelerate growth.
+        </p>
+
+    </div>
+
+    <div className="deliverables-grid">
+
+        <div className="deliverable-card">
+            <span>📊</span>
+            <h3>Executive Business Opportunity Brief™</h3>
+            <p>A personalized overview of your business growth opportunities.</p>
+        </div>
+
+        <div className="deliverable-card">
+            <span>💰</span>
+            <h3>Hidden Revenue Analysis™</h3>
+            <p>Discover areas where additional revenue may already exist.</p>
+        </div>
+
+        <div className="deliverable-card">
+            <span>🤖</span>
+            <h3>AI Opportunity Review™</h3>
+            <p>See where automation and AI can improve efficiency.</p>
+        </div>
+
+        <div className="deliverable-card">
+            <span>👥</span>
+            <h3>Employee Growth Review™</h3>
+            <p>Identify opportunities to improve hiring, retention, and team performance.</p>
+        </div>
+
+        <div className="deliverable-card">
+            <span>📈</span>
+            <h3>90-Day Business Growth Blueprint™</h3>
+            <p>A practical roadmap focused on the highest-impact improvements.</p>
+        </div>
+
+        <div className="deliverable-card">
+            <span>🎯</span>
+            <h3>Complimentary Strategy Session™</h3>
+            <p>Review your report with a Business Growth Strategist.</p>
+        </div>
+
+    </div>
+
+</section>
+
+</>
+
 )}
+
+
 
 {/* ==========================================
     STEP 1 — BUSINESS INFORMATION
@@ -1466,11 +1741,11 @@ Executive Business Opportunity Brief™.
           )}
 
           {step < 8 ? (
-            <button
-              onClick={() => setStep(step + 1)}
-            >
-              Next
-            </button>
+         <button
+  onClick={handleNext}
+>
+  Next
+</button>
           ) : (
            <button
   onClick={() =>

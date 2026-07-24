@@ -8,3 +8,960 @@
     width:min(1200px,92%);
     margin:auto;
 }
+
+/*==================================================
+HEADER
+==================================================*/
+
+.snapshot-header{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:60px;
+
+    margin-bottom:35px;
+
+    text-align:center;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.snapshot-header .eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:#e8fbf4;
+
+    color:#10b981;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+.snapshot-header h1{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    color:#071426;
+
+    margin-bottom:20px;
+
+    line-height:1.15;
+
+}
+
+.snapshot-header p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    font-size:1.08rem;
+
+}
+
+/*==================================================
+BUSINESS GROWTH IQ
+==================================================*/
+
+.overall-score{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    margin-bottom:35px;
+
+    text-align:center;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.overall-score span{
+
+    display:block;
+
+    color:#64748b;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-size:.82rem;
+
+    margin-bottom:12px;
+
+}
+
+.overall-score h2{
+
+    font-size:5rem;
+
+    color:#071426;
+
+    margin:0;
+
+    line-height:1;
+
+    font-weight:800;
+
+}
+
+.overall-score small{
+
+    display:block;
+
+    color:#94a3b8;
+
+    margin-top:12px;
+
+    font-size:1rem;
+
+}
+
+.growth-pill{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 28px;
+
+    margin-top:24px;
+
+    border-radius:999px;
+
+    background:#10b981;
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:.95rem;
+
+}
+
+/*==================================================
+BUSINESS DASHBOARD
+==================================================*/
+
+.score-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:22px;
+
+    margin-bottom:35px;
+
+}
+
+.score-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    border:1px solid #edf2f7;
+
+    text-align:center;
+
+    transition:.25s;
+
+    box-shadow:0 10px 25px rgba(15,23,42,.04);
+
+}
+
+.score-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 40px rgba(15,23,42,.08);
+
+}
+
+.score-card svg{
+
+    font-size:2rem;
+
+    color:#2563eb;
+
+    margin-bottom:18px;
+
+}
+
+.score-card h3{
+
+    color:#64748b;
+
+    font-size:.95rem;
+
+    margin-bottom:14px;
+
+}
+
+.score-card strong{
+
+    display:block;
+
+    font-size:2.3rem;
+
+    color:#071426;
+
+    font-weight:800;
+
+}
+
+/*==================================================
+REVENUE OPPORTUNITY
+==================================================*/
+
+.revenue-opportunity{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.revenue-opportunity h2{
+
+    font-size:2rem;
+
+    color:#071426;
+
+    margin-bottom:30px;
+
+}
+
+.revenue-box{
+
+    text-align:center;
+
+    padding:45px;
+
+    border-radius:18px;
+
+    background:linear-gradient(180deg,#f8fbff,#ffffff);
+
+    border:1px solid #e8eef7;
+
+}
+
+.revenue-box h1{
+
+    font-size:4rem;
+
+    color:#10b981;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+
+}
+
+.revenue-box p{
+
+    color:#64748b;
+
+    font-size:1.05rem;
+
+    max-width:600px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+EXECUTIVE SUMMARY
+==================================================*/
+
+.executive-summary{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.executive-summary h2{
+
+    font-size:2rem;
+
+    color:#071426;
+
+    margin-bottom:24px;
+
+}
+
+.executive-summary p{
+
+    color:#64748b;
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+}
+
+/*==================================================
+SECTION HEADERS
+==================================================*/
+
+.section-heading-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin-bottom:30px;
+
+}
+
+.section-kicker{
+
+    display:inline-flex;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:#e8fbf4;
+
+    color:#10b981;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:16px;
+
+}
+
+.section-heading-row h2{
+
+    font-size:2rem;
+
+    color:#071426;
+
+}
+
+/*==================================================
+STRENGTHS
+==================================================*/
+
+.strengths-section{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.insight-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:18px;
+
+}
+
+.insight-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    padding:22px;
+
+    border-radius:16px;
+
+    border:1px solid #edf2f7;
+
+    background:#fbfcfe;
+
+}
+
+.insight-item svg{
+
+    color:#10b981;
+
+    font-size:1.25rem;
+
+    flex-shrink:0;
+
+    margin-top:2px;
+
+}
+
+.insight-item span{
+
+    color:#071426;
+
+    font-weight:600;
+
+    line-height:1.6;
+
+}
+
+.empty-insight{
+
+    padding:30px;
+
+    border-radius:18px;
+
+    background:#f8fafc;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+/*==================================================
+OPPORTUNITIES
+==================================================*/
+
+.top-opportunities{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:50px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.opportunity-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:18px;
+
+}
+
+.opportunity-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    padding:22px;
+
+    border-radius:16px;
+
+    border:1px solid #edf2f7;
+
+    background:#fbfcfe;
+
+    transition:.25s;
+
+}
+
+.opportunity-item:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(15,23,42,.05);
+
+}
+
+.opportunity-item svg{
+
+    color:#2563eb;
+
+    font-size:1.2rem;
+
+    flex-shrink:0;
+
+    margin-top:2px;
+
+}
+
+.opportunity-item span{
+
+    font-weight:600;
+
+    color:#071426;
+
+    line-height:1.6;
+
+}
+/*==================================================
+BUSINESS GROWTH BLUEPRINT™
+==================================================*/
+
+.growth-blueprint{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:55px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.blueprint-intro{
+
+    max-width:850px;
+
+    color:#64748b;
+
+    margin-bottom:40px;
+
+    line-height:1.9;
+
+}
+
+.blueprint-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+    gap:28px;
+
+}
+
+.blueprint-card{
+
+    background:#ffffff;
+
+    border:1px solid #e8eef7;
+
+    border-radius:20px;
+
+    padding:32px;
+
+    transition:.30s;
+
+    position:relative;
+
+}
+
+.blueprint-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 45px rgba(15,23,42,.08);
+
+}
+
+.blueprint-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.priority-badge{
+
+    background:#eef5ff;
+
+    color:#2563eb;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+}
+
+.impact-badge{
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:.78rem;
+
+    font-weight:700;
+
+}
+
+.impact-high{
+
+    background:#e8fbf4;
+
+    color:#10b981;
+
+}
+
+.impact-medium{
+
+    background:#fff8e6;
+
+    color:#d97706;
+
+}
+
+.impact-low{
+
+    background:#feecec;
+
+    color:#dc2626;
+
+}
+
+.blueprint-card h3{
+
+    font-size:1.45rem;
+
+    color:#071426;
+
+    margin-bottom:26px;
+
+}
+
+.blueprint-detail{
+
+    margin-bottom:24px;
+
+}
+
+.blueprint-detail span{
+
+    display:block;
+
+    font-size:.78rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    color:#94a3b8;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.blueprint-detail p{
+
+    margin:0;
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+.blueprint-solution{
+
+    font-weight:700;
+
+    color:#071426;
+
+}
+
+/*==================================================
+RECOMMENDATIONS
+==================================================*/
+
+.recommendations-section{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:55px;
+
+    margin-bottom:35px;
+
+    border:1px solid #edf2f7;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.05);
+
+}
+
+.recommendation-list{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.recommendation-item{
+
+    display:flex;
+
+    gap:24px;
+
+    align-items:flex-start;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    border:1px solid #edf2f7;
+
+    background:#fbfcfe;
+
+    transition:.25s;
+
+}
+
+.recommendation-item:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 30px rgba(15,23,42,.06);
+
+}
+
+.recommendation-number{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+}
+
+.recommendation-item h3{
+
+    margin-bottom:10px;
+
+    color:#071426;
+
+}
+
+.recommendation-item p{
+
+    margin:0;
+
+    color:#64748b;
+
+}
+
+/*==================================================
+CTA
+==================================================*/
+
+.snapshot-cta{
+
+    background:linear-gradient(135deg,#071426,#0b1f36);
+
+    color:white;
+
+    border-radius:24px;
+
+    padding:70px;
+
+    text-align:center;
+
+    margin-top:45px;
+
+}
+
+.snapshot-cta .section-kicker{
+
+    background:rgba(255,255,255,.12);
+
+    color:#34d399;
+
+}
+
+.snapshot-cta h2{
+
+    color:white;
+
+    font-size:2.5rem;
+
+    margin:24px 0;
+
+}
+
+.snapshot-cta p{
+
+    color:rgba(255,255,255,.82);
+
+    max-width:760px;
+
+    margin:0 auto 40px;
+
+}
+
+.cta-benefits{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-bottom:45px;
+
+}
+
+.cta-benefits div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    justify-content:center;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.cta-benefits svg{
+
+    color:#34d399;
+
+    font-size:1.2rem;
+
+}
+
+.snapshot-cta .button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 34px;
+
+    border-radius:999px;
+
+    background:#10b981;
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.snapshot-cta .button:hover{
+
+    transform:translateY(-3px);
+
+    background:#059669;
+
+}

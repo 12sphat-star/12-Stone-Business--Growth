@@ -70,15 +70,15 @@ export default function BusinessOpportunitySnapshot() {
             HEADER
         =========================== */}
 
-        <header className="snapshot-header">
+<header className="snapshot-header">
 
           <span className="eyebrow">
             12 Stone Consulting
           </span>
 
-          <h1>
-            Executive Business Growth Report™
-          </h1>
+    <h1>
+  Executive Business Growth Report™
+</h1>
 
           <p>
             Based on your Business Growth IQ™ Assessment,
