@@ -8,6 +8,7 @@ export default function ExecutiveBrief() {
 
   const [step, setStep] = useState(0);
   const [validationMessage, setValidationMessage] = useState("");
+
 const navigate = useNavigate();
  const [formData, setFormData] = useState({
   // Step 1
@@ -28,7 +29,8 @@ newCustomers: "",
 followUp: "",
 retention: "",
 referrals: "",
-salesProcess: "",
+customerReactivation: "",
+onlineReputation: "",
 
 // Step 3
 websiteScore: "",
@@ -42,6 +44,7 @@ customerSatisfaction: "",
 scheduling: "",
 workflow: "",
 automation: "",
+missedOpportunities: "",
 crm: "",
 reporting: "",
 operationsScore: "",
@@ -80,96 +83,147 @@ const handleChange = (e) => {
 /*==========================================
 VALIDATE CURRENT STEP
 ==========================================*/
-
 const validateStep = () => {
 
-  switch(step){
+  switch (step) {
 
-    case 1:
-      return (
-        formData.businessName.trim() &&
-        formData.contactName.trim() &&
-        formData.email.trim() &&
-        formData.phone.trim()
-      );
+    // Welcome Screen
+    case 0:
+      return true;
 
+    // Business Information
+ case 1:
+  return (
+    formData.businessName.trim() !== "" &&
+    formData.contactName.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
+    formData.industry !== "" &&
+    formData.employees !== "" &&
+    formData.yearsInBusiness !== ""
+  );
+
+    // Business Growth
     case 2:
       return (
-        formData.revenueGrowth &&
-        formData.newCustomers &&
-        formData.followUp &&
-        formData.retention &&
-        formData.referrals &&
-        formData.salesProcess
+        formData.revenueGrowth !== "" &&
+        formData.newCustomers !== "" &&
+        formData.followUp !== "" &&
+        formData.retention !== "" &&
+        formData.referrals !== "" &&
+        formData.customerReactivation !== "" &&
+        formData.onlineReputation !== ""
       );
 
+    // Customer Experience
     case 3:
       return (
-        formData.websiteScore &&
-        formData.reviews &&
-        formData.response &&
-        formData.communication &&
-        formData.customerFollowup &&
-        formData.customerSatisfaction
+        formData.websiteScore !== "" &&
+        formData.reviews !== "" &&
+        formData.response !== "" &&
+        formData.communication !== "" &&
+        formData.customerFollowup !== "" &&
+        formData.customerSatisfaction !== ""
       );
 
+    // Operations
     case 4:
-      return (
-        formData.scheduling &&
-        formData.workflow &&
-        formData.automation &&
-        formData.crm &&
-        formData.reporting &&
-        formData.operationsScore
-      );
+  return (
+    formData.scheduling !== "" &&
+    formData.workflow !== "" &&
+    formData.automation !== "" &&
+    formData.missedOpportunities !== "" &&
+    formData.crm !== "" &&
+    formData.reporting !== "" &&
+    formData.operationsScore !== ""
+  );
 
+    // Employee Growth
     case 5:
       return (
-        formData.recruiting &&
-        formData.retentionEmployees &&
-        formData.leadership &&
-        formData.morale &&
-        formData.benefits &&
-        formData.teamStrength
+        formData.recruiting !== "" &&
+        formData.retentionEmployees !== "" &&
+        formData.leadership !== "" &&
+        formData.morale !== "" &&
+        formData.benefits !== "" &&
+        formData.teamStrength !== ""
       );
 
+    // Technology
     case 6:
       return (
-        formData.websiteTech &&
-        formData.crmTech &&
-        formData.ai &&
-        formData.texting &&
-        formData.phoneSystem &&
-        formData.technologyScore
+        formData.websiteTech !== "" &&
+        formData.crmTech !== "" &&
+        formData.ai !== "" &&
+        formData.texting !== "" &&
+        formData.phoneSystem !== "" &&
+        formData.technologyScore !== ""
       );
 
+    // Priorities
     case 7:
       return (
-        formData.primaryGoal &&
-        formData.biggestChallenge &&
-        formData.interest
+        formData.primaryGoal !== "" &&
+        formData.biggestChallenge !== "" &&
+        formData.interest !== "" &&
+        formData.strategySession !== ""
       );
+
+    // Review
+    case 8:
+      return true;
 
     default:
       return true;
   }
+};
+const buildBusinessResults = () => {
+
+  return {
+
+    businessName: formData.businessName,
+
+    contactName: formData.contactName,
+
+    industry: formData.industry,
+
+    employees: formData.employees,
+
+    yearsInBusiness: formData.yearsInBusiness,
+
+    annualRevenue: formData.annualRevenue,
+
+    overallScore: 74,
+
+    revenueScore: 72,
+
+    customerScore: 84,
+
+    operationsScore: 68,
+
+    employeeScore: 59,
+
+    technologyScore: 43
+
+  };
 
 };
 
 const handleNext = () => {
 
-  if (!validateStep()) {
 
+
+  const isValid = validateStep();
+
+  if (!isValid) {
     setValidationMessage(
-  "Please complete all required questions before continuing."
-);
-
+      "⚠️ Please answer all required questions highlighted on this page before continuing."
+    );
     return;
-
   }
 
-  setStep(step + 1);
   setValidationMessage("");
+  setStep((prev) => prev + 1);
 
 };
 
@@ -298,39 +352,24 @@ return (
 
     </p>
 
-    <div className="brief-trust">
+<div className="brief-trust">
 
-        <div className="trust-card">
-
-            <h3>📈 Grow</h3>
-
-            <p>
-                Find hidden revenue opportunities.
-            </p>
-
-        </div>
-
-        <div className="trust-card">
-
-            <h3>⚙ Improve</h3>
-
-            <p>
-                Streamline operations with smarter systems.
-            </p>
-
-        </div>
-
-        <div className="trust-card">
-
-            <h3>🤖 Automate</h3>
-
-            <p>
-                Discover where AI can save time and money.
-            </p>
-
-        </div>
-
+    <div className="trust-card">
+        <h3>✓ 8–10 Minutes</h3>
+        <p>Quick business assessment.</p>
     </div>
+
+    <div className="trust-card">
+        <h3>📊 Personalized Report</h3>
+        <p>Executive Business Opportunity Brief™.</p>
+    </div>
+
+    <div className="trust-card">
+        <h3>🎯 Complimentary Strategy Session</h3>
+        <p>Review your results with a strategist.</p>
+    </div>
+
+</div>
 
 </header>
 
@@ -338,69 +377,60 @@ return (
             PROGRESS BAR
         ========================================== */}
 
-       <div className="executive-progress">
+<div className="executive-progress">
 
   <div className="progress-top">
 
     <div>
-
       <span className="progress-label">
-        Business Growth IQ™ Assessment
+        Executive Business Growth Assessment™
       </span>
 
-      <h3>
-        Step {step + 1} of 9
-      </h3>
-
+      <h3>Business Growth Journey</h3>
     </div>
 
     <div className="progress-percent">
-      {Math.round(((step + 1) / 9) * 100)}%
+      {Math.round((step / 8) * 100)}%
     </div>
 
   </div>
 
-  <div className="progress-wrapper">
+  <div className="progress-score">
+    Completion Score
+  </div>
 
+  <div className="progress-wrapper">
     <div
       className="progress-bar"
-      style={{
-        width: `${((step + 1) / 9) * 100}%`,
-      }}
+      style={{ width: `${(step / 8) * 100}%` }}
     />
-
   </div>
 
   <div className="progress-footer">
-
-    <span>
-      Estimated Time Remaining
-    </span>
+    <span>Estimated Time Remaining</span>
 
     <strong>
       {Math.max(1, 9 - step)} Minutes
     </strong>
-
   </div>
 
 </div>
 
-  
-       <div className="rating-legend">
+{step > 0 && (
+
+<div className="rating-legend">
 
   <strong>Rating Guide:</strong>
 
   <span>1 • Needs Improvement</span>
-
   <span>2 • Fair</span>
-
   <span>3 • Good</span>
-
   <span>4 • Very Good</span>
-
   <span>5 • Excellent</span>
 
 </div>
+
+)}
 
 {/* ==========================================
     STEP 0 — WELCOME
@@ -417,61 +447,70 @@ return (
     </span>
 
     <h1>
-        Discover Hidden Revenue Already Inside Your Business.
-    </h1>
+    Executive Business Growth Discovery™
+</h1>
 
-    <p className="welcome-lead">
+<p className="welcome-lead">
 
-        Complete this complimentary Business Growth IQ™ Assessment and
-        receive a personalized Executive Business Opportunity Brief™
-        highlighting hidden revenue opportunities, operational improvements,
-        AI automation potential, employee growth strategies, and a practical
-        roadmap for growing your business.
+    Every successful business begins with understanding where it is today.
 
-    </p>
+    The <strong>Executive Business Growth Discovery™</strong> is a strategic
+    discovery process designed to uncover hidden revenue opportunities,
+    operational inefficiencies, customer experience gaps, technology
+    limitations, and employee growth opportunities.
 
-    <div className="welcome-grid">
+</p>
 
-        <div className="welcome-card">
+<div className="welcome-grid">
 
-            <div className="card-icon">📈</div>
+    <div className="welcome-card">
 
-            <h3>Grow Revenue</h3>
+        <div className="card-icon">📊</div>
 
-            <p>
-                Discover overlooked opportunities to generate additional
-                revenue from your existing business.
-            </p>
+        <h3>Business Growth Snapshot™</h3>
 
-        </div>
-
-        <div className="welcome-card">
-
-            <div className="card-icon">⚙️</div>
-
-            <h3>Improve Operations</h3>
-
-            <p>
-                Identify bottlenecks, inefficient workflows and opportunities
-                to improve customer experience.
-            </p>
-
-        </div>
-
-        <div className="welcome-card">
-
-            <div className="card-icon">🤖</div>
-
-            <h3>Leverage AI</h3>
-
-            <p>
-                Learn where AI and automation can reduce costs,
-                improve response times and increase profitability.
-            </p>
-
-        </div>
+        <p>
+            Receive an executive-level snapshot highlighting your business's
+            strengths, growth opportunities, and potential revenue gaps.
+        </p>
 
     </div>
+
+    <div className="welcome-card">
+
+        <div className="card-icon">🤝</div>
+
+        <h3>Complimentary Business Growth Overview™</h3>
+
+        <p>
+            Meet with a Business Growth Strategist to review your discovery,
+            discuss opportunities, and answer your questions.
+        </p>
+
+    </div>
+
+    <div className="welcome-card">
+
+        <div className="card-icon">📘</div>
+
+        <h3>Executive Business Growth Brief™</h3>
+
+        <p>
+            Receive a customized strategic roadmap with recommendations
+            designed specifically for your business, goals, and future growth.
+        </p>
+
+    </div>
+
+</div>
+
+<div className="section-tip">
+
+    💡 There are no right or wrong answers. The more accurately you answer,
+    the more valuable your Business Growth Snapshot™ and Executive Business
+    Growth Brief™ will be.
+
+</div>
 
     <button
         className="begin-button"
@@ -549,6 +588,20 @@ return (
 
 </section>
 
+
+<button
+
+    className="begin-button"
+    onClick={() => setStep(1)}
+>
+    Begin Business Growth IQ™ Assessment →
+</button>
+
+<small className="begin-note">
+    Average completion time:
+    <strong> 8–10 minutes</strong>
+</small>
+
 </>
 
 )}
@@ -566,25 +619,101 @@ return (
   <div className="section-title">
 
     <span className="step-number">
-      Step 1 of 8
+      Business Profile
     </span>
 
-    <h2>Business Information</h2>
+<h2>
+Tell Us About Your Business
+</h2>
 
-    <p>
-      Let's begin by learning a little about your business. This information
-      helps us personalize your Executive Business Opportunity Brief™.
-    </p>
+<p>
+
+The more we understand about your business, the more personalized and valuable
+your Executive Business Opportunity Brief™ will be. This information helps us
+identify opportunities specific to your company, industry, and stage of growth.
+
+</p>
 
   </div>
 
-  <div className="brief-grid">
+<div className="section-tip">
+  <div className="profile-intro">
+
+    <div className="intro-card">
+
+        <h3>📊 Personalized Analysis</h3>
+
+        <p>
+            Every answer helps us generate recommendations that are tailored specifically to your business.
+        </p>
+
+    </div>
+
+    <div className="intro-card">
+
+        <h3>⏱ Takes Less Than 10 Minutes</h3>
+
+        <p>
+            Most business owners complete the assessment in under ten minutes.
+        </p>
+
+    </div>
+
+</div>
+
+    🔒 Your information is never shared or sold.
+    It is used only to personalize your Executive Business Opportunity Brief™
+    and your complimentary Business Growth Strategy Session.
+
+</div>
+
+<div className="profile-progress">
+
+    <div className="profile-progress-card">
+
+        <div className="progress-icon">📋</div>
+
+        <div>
+
+            <h3>Business Profile</h3>
+
+            <p>
+                This information personalizes your Executive Business Opportunity Brief™.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div className="profile-progress-card">
+
+        <div className="progress-icon">⏱</div>
+
+        <div>
+
+            <h3>About 2 Minutes</h3>
+
+            <p>
+                Complete this section to unlock your customized business analysis.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+  <div className="brief-grid business-profile-grid">
 
     {/* Business Name */}
 
     <div className="form-group">
 
-      <label>Business Name *</label>
+     <label>
+  Business Name *
+  <small>
+    Used throughout your Executive Business Opportunity Brief™
+  </small>
+</label>
 
       <input
         type="text"
@@ -612,16 +741,16 @@ return (
 
     </div>
 
-    {/* Title */}
+    {/* Your Role */}
 
     <div className="form-group">
 
-      <label>Title</label>
+      <label>Your Role</label>
 
       <input
         type="text"
-        name="title"
-        value={formData.title}
+        name="yourRole"
+        value={formData.yourRole}
         onChange={handleChange}
         placeholder="Owner / President"
       />
@@ -714,11 +843,11 @@ return (
 
     </div>
 
-    {/* Employees */}
+    {/* Current Team Size */}
 
     <div className="form-group">
 
-      <label>Employees</label>
+      <label>Current Team Size</label>
 
       <select
         name="employees"
@@ -726,7 +855,7 @@ return (
         onChange={handleChange}
       >
 
-        <option value="">Select Employees</option>
+        <option value="">Select Team Size</option>
 
         <option>Just Me</option>
         <option>2–5</option>
@@ -740,11 +869,11 @@ return (
 
     </div>
 
-    {/* Years */}
+    {/* How Long Have You Been in Business? */}
 
     <div className="form-group">
 
-      <label>Years in Business</label>
+      <label>How Long Have You Been in Business?</label>
 
       <select
         name="yearsInBusiness"
@@ -802,165 +931,247 @@ return (
 
 <section className="brief-section">
 
-  <div className="section-title">
+    <div className="section-title">
 
-    <span className="step-number">
-      Step 2 of 8
-    </span>
+        <span className="step-number">
+            Revenue & Growth Performance™
+        </span>
 
-    <h2>Business Growth</h2>
+        <h2>
+            Is Your Business Reaching Its Revenue Potential?
+        </h2>
 
-    <p>
-      Help us understand how your business is performing in these key growth
-      areas.
-    </p>
+        <p>
+            This section measures the core drivers of business growth. Your answers
+            help identify hidden revenue opportunities, sales consistency, and
+            business growth trends that will be analyzed in your Executive
+            Business Opportunity Brief™.
+        </p>
+ </div>
+   
+   
+    <div className="section-tip">
 
-  </div>
-
-  <div className="brief-grid">
-
-    <div className="form-group">
-
-      <label>Revenue Growth</label>
-
-      <select
-        name="revenueGrowth"
-        value={formData.revenueGrowth || ""}
-        onChange={handleChange}
-      >
-
-        <option value="">Select Rating</option>
-
-        <option value="1">1 - Needs Significant Improvement</option>
-        <option value="2">2 - Fair</option>
-        <option value="3">3 - Good</option>
-        <option value="4">4 - Very Good</option>
-        <option value="5">5 - Excellent</option>
-
-      </select>
+        📈 Answer based on your business over the last 12 months—not your best month
+        or your worst month.
 
     </div>
 
-    <div className="form-group">
+    <div className="score-card">
 
-      <label>New Customer Growth</label>
+        <label>
 
-      <select
-        name="newCustomers"
-        value={formData.newCustomers || ""}
-        onChange={handleChange}
-      >
+            Revenue Growth
 
-        <option value="">Select Rating</option>
+            <small>
+                How consistently has your business increased revenue during the
+                past 12 months?
+            </small>
 
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        </label>
 
-      </select>
+        <select
+            name="revenueGrowth"
+            value={formData.revenueGrowth}
+            onChange={handleChange}
+        >
 
-    </div>
+            <option value="">Choose One</option>
 
-    <div className="form-group">
+            <option value="1">🔴 Needs Immediate Attention</option>
+            <option value="2">🟠 Needs Improvement</option>
+            <option value="3">🟡 Average</option>
+            <option value="4">🟢 Strong</option>
+            <option value="5">⭐ Industry Leader</option>
 
-      <label>Lead Follow-up</label>
-
-      <select
-        name="followUp"
-        value={formData.followUp || ""}
-        onChange={handleChange}
-      >
-
-        <option value="">Select Rating</option>
-
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-
-      </select>
+        </select>
 
     </div>
 
-    <div className="form-group">
+    <div className="score-card">
 
-      <label>Customer Retention</label>
+        <label>
 
-      <select
-        name="retention"
-        value={formData.retention || ""}
-        onChange={handleChange}
-      >
+           New Customer Acquisition
 
-        <option value="">Select Rating</option>
+            <small>
+                How consistently are you bringing in qualified new customers?
+            </small>
 
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        </label>
 
-      </select>
+        <select
+            name="newCustomers"
+            value={formData.newCustomers}
+            onChange={handleChange}
+        >
 
-    </div>
+            <option value="">Choose One</option>
 
-    <div className="form-group">
+            <option value="1">🔴 Needs Immediate Attention</option>
+            <option value="2">🟠 Needs Improvement</option>
+            <option value="3">🟡 Average</option>
+            <option value="4">🟢 Strong</option>
+            <option value="5">⭐ Industry Leader</option>
 
-      <label>Referral Generation</label>
-
-      <select
-        name="referrals"
-        value={formData.referrals || ""}
-        onChange={handleChange}
-      >
-
-        <option value="">Select Rating</option>
-
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-
-      </select>
+        </select>
 
     </div>
 
-    <div className="form-group">
+    <div className="score-card">
 
-      <label>Sales Process</label>
+        <label>
 
-      <select
-        name="salesProcess"
-        value={formData.salesProcess || ""}
-        onChange={handleChange}
-      >
+            Lead Follow-Up
 
-        <option value="">Select Rating</option>
+            <small>
+                How effectively does your team follow up on every lead?
+            </small>
 
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        </label>
 
-      </select>
+        <select
+            name="followUp"
+            value={formData.followUp}
+            onChange={handleChange}
+        >
+
+            <option value="">Choose One</option>
+
+            <option value="1">🔴 Needs Immediate Attention</option>
+            <option value="2">🟠 Needs Improvement</option>
+            <option value="3">🟡 Average</option>
+            <option value="4">🟢 Strong</option>
+            <option value="5">⭐ Industry Leader</option>
+
+        </select>
 
     </div>
 
-  </div>
+    <div className="score-card">
+
+        <label>
+
+            Customer Retention
+
+            <small>
+                How successful is your business at keeping existing customers?
+            </small>
+
+        </label>
+
+        <select
+            name="retention"
+            value={formData.retention}
+            onChange={handleChange}
+        >
+
+            <option value="">Choose One</option>
+
+            <option value="1">🔴 Needs Immediate Attention</option>
+            <option value="2">🟠 Needs Improvement</option>
+            <option value="3">🟡 Average</option>
+            <option value="4">🟢 Strong</option>
+            <option value="5">⭐ Industry Leader</option>
+
+        </select>
+
+    </div>
+
+    <div className="score-card">
+
+        <label>
+
+            Referral Generation
+
+            <small>
+                How often do your customers refer new business?
+            </small>
+
+        </label>
+
+        <select
+            name="referrals"
+            value={formData.referrals}
+            onChange={handleChange}
+        >
+
+            <option value="">Choose One</option>
+
+            <option value="1">🔴 Needs Immediate Attention</option>
+            <option value="2">🟠 Needs Improvement</option>
+            <option value="3">🟡 Average</option>
+            <option value="4">🟢 Strong</option>
+            <option value="5">⭐ Industry Leader</option>
+
+        </select>
+
+    </div>
+  
+    <div className="score-card">
+
+    <label>
+
+        Customer Reactivation
+
+        <small>
+            How consistently do you stay in touch with past customers through follow-up, maintenance reminders, email, text messages, or special offers?
+        </small>
+
+    </label>
+
+    <select
+        name="customerReactivation"
+        value={formData.customerReactivation}
+        onChange={handleChange}
+    >
+
+        <option value="">Choose One</option>
+
+        <option value="1">🔴 Needs Immediate Attention</option>
+        <option value="2">🟠 Needs Improvement</option>
+        <option value="3">🟡 Average</option>
+        <option value="4">🟢 Strong</option>
+        <option value="5">⭐ Industry Leader</option>
+
+    </select>
+
+</div>
+
+<div className="score-card">
+
+    <label>
+
+      Online Presence & Reputation
+
+        <small>
+            How effectively does your business collect, manage, and respond to online reviews?
+        </small>
+
+    </label>
+
+    <select
+        name="onlineReputation"
+        value={formData.onlineReputation}
+        onChange={handleChange}
+    >
+
+        <option value="">Choose One</option>
+
+        <option value="1">🔴 Needs Immediate Attention</option>
+        <option value="2">🟠 Needs Improvement</option>
+        <option value="3">🟡 Average</option>
+        <option value="4">🟢 Strong</option>
+        <option value="5">⭐ Industry Leader</option>
+
+    </select>
+
+</div>
 
 </section>
 
 )}
 
-
-{/* ==========================================
-    STEP 3 — CUSTOMER EXPERIENCE
-========================================== */}
 
 {/* ==========================================
     STEP 3 — CUSTOMER EXPERIENCE
@@ -972,30 +1183,48 @@ return (
 
   <div className="section-title">
 
-    <span className="step-number">
-      Step 3 of 8
-    </span>
+  <span className="step-number">
+    Customer Experience & Digital Presence™
+</span>
 
-    <h2>Customer Experience</h2>
+<h2>
+    How Easy Is It To Do Business With You?
+</h2>
 
-    <p>
-      Your customers often determine the long-term success of your business.
-      Rate the following areas.
-    </p>
+<p>
+    Your customers judge your business long before they become loyal clients.
+    This section evaluates the customer experience, communication, and digital
+    presence that influence trust, referrals, online reputation, and long-term
+    business growth.
+</p>
 
   </div>
+
+  <div className="section-tip">
+
+    💡 Put yourself in your customer's shoes. Think about the entire experience—from finding your business online to the follow-up after the job is completed.
+
+</div>
 
   <div className="brief-grid">
 
     <div className="form-group">
-      <label>Website Effectiveness</label>
+     <label>
+
+    Smart Website Effectiveness
+
+    <small>
+        Does your website actively generate leads, build trust, answer questions, and encourage customers to contact your business?
+    </small>
+
+</label>
 
       <select
         name="websiteScore"
         value={formData.websiteScore}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
+        <option value="">-- Please Select --</option>
         <option value="1">1 - Needs Improvement</option>
         <option value="2">2 - Fair</option>
         <option value="3">3 - Good</option>
@@ -1005,87 +1234,127 @@ return (
     </div>
 
     <div className="form-group">
-      <label>Online Reviews</label>
+      <label>
+
+    Online Reviews & Reputation
+
+    <small>
+        How effectively does your business generate positive reviews and manage its online reputation?
+    </small>
+
+</label>
 
       <select
         name="reviews"
         value={formData.reviews}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+       <option value="">Select Your Rating</option>
+<option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
     </div>
 
     <div className="form-group">
-      <label>Customer Response Time</label>
+      <label>
+
+    Response Speed
+
+    <small>
+        How quickly do potential customers receive a response when they contact your business?
+    </small>
+
+</label>
 
       <select
         name="response"
         value={formData.response}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+    <option value="">Select Your Rating</option>
+<option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
     </div>
 
     <div className="form-group">
-      <label>Customer Communication</label>
+     <label>
+
+    Customer Communication
+
+    <small>
+        How well does your business keep customers informed before, during, and after the job?
+    </small>
+
+</label>
 
       <select
         name="communication"
         value={formData.communication}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+       <option value="">Select Your Rating</option>
+<option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
     </div>
 
     <div className="form-group">
-      <label>Customer Follow-Up</label>
+      <label>
+
+    Post-Service Follow-Up
+
+    <small>
+        How consistently do you follow up after completing a job to thank customers, request reviews, generate referrals, or encourage repeat business?
+    </small>
+
+</label>
 
       <select
         name="customerFollowup"
         value={formData.customerFollowup}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+      <option value="">Select Your Rating</option>
+<option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
     </div>
 
     <div className="form-group">
-      <label>Overall Customer Satisfaction</label>
+     <label>
+
+    Overall Customer Experience
+
+    <small>
+        Based on the complete customer journey, how satisfied do you believe your customers are with doing business with you?
+    </small>
+
+</label>
 
       <select
         name="customerSatisfaction"
         value={formData.customerSatisfaction}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+      <option value="">Select Your Rating</option>
+<option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
     </div>
 
@@ -1095,7 +1364,7 @@ return (
 
 )}
 {/* ==========================================
-    STEP 4 — OPERATIONS
+    STEP 4 — BUSINESS OPERATIONS
 ========================================== */}
 
 {step === 4 && (
@@ -1105,29 +1374,45 @@ return (
   <div className="section-title">
 
     <span className="step-number">
-      Step 4 of 8
+      Business Operations & Systems™
     </span>
 
-    <h2>Business Operations</h2>
+    <h2>
+      How Efficiently Does Your Business Operate?
+    </h2>
 
     <p>
-      Efficient operations create a stronger customer experience and improve
-      profitability.
+      Strong systems help businesses save time, reduce costs, improve customer
+      service, and create consistent growth. This section evaluates how
+      efficiently your business operates behind the scenes.
     </p>
 
   </div>
 
+  <div className="section-tip">
+    ⚙️ Think about how work flows through your business—from the first customer
+    call to scheduling, completing the work, collecting payment, and following up afterward.
+  </div>
+
   <div className="brief-grid">
 
+    {/* Scheduling */}
+
     <div className="form-group">
-      <label>Scheduling Process</label>
+
+      <label>
+        Scheduling & Dispatch
+        <small>
+          How efficiently are appointments scheduled, updated, and communicated to customers and your team?
+        </small>
+      </label>
 
       <select
         name="scheduling"
         value={formData.scheduling}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
+        <option value="">Select Your Rating</option>
         <option value="1">1 - Needs Improvement</option>
         <option value="2">2 - Fair</option>
         <option value="3">3 - Good</option>
@@ -1137,97 +1422,158 @@ return (
 
     </div>
 
+    {/* Workflow */}
+
     <div className="form-group">
 
-      <label>Workflow Efficiency</label>
+      <label>
+        Workflow & Process Efficiency
+        <small>
+          How consistently does work move through your business without delays, confusion, or unnecessary manual steps?
+        </small>
+      </label>
 
       <select
         name="workflow"
         value={formData.workflow}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
+    {/* Automation */}
+
     <div className="form-group">
 
-      <label>Business Automation</label>
+      <label>
+        Automation & Time Savings
+        <small>
+          How effectively does your business use automation to eliminate repetitive tasks and save valuable time?
+        </small>
+      </label>
 
       <select
         name="automation"
         value={formData.automation}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
+    {/* Missed Opportunities */}
+
     <div className="form-group">
 
-      <label>CRM / Lead Management</label>
+      <label>
+        Missed Opportunities
+        <small>
+          How confident are you that your business captures every lead, answers every inquiry, and follows up on every opportunity?
+        </small>
+      </label>
+
+      <select
+        name="missedOpportunities"
+        value={formData.missedOpportunities}
+        onChange={handleChange}
+      >
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
+      </select>
+
+    </div>
+
+    {/* CRM */}
+
+    <div className="form-group">
+
+      <label>
+        Customer & Lead Management
+        <small>
+          How well does your business organize leads, customers, follow-ups, and communication in one central system?
+        </small>
+      </label>
 
       <select
         name="crm"
         value={formData.crm}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
+    {/* Reporting */}
+
     <div className="form-group">
 
-      <label>Business Reporting</label>
+      <label>
+        Business Insights & Reporting
+        <small>
+          How easily can you track important business information such as revenue, leads, sales, customer activity, and overall business performance?
+        </small>
+      </label>
 
       <select
         name="reporting"
         value={formData.reporting}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
+    {/* Overall */}
+
     <div className="form-group">
 
-      <label>Overall Operational Efficiency</label>
+      <label>
+        Overall Business Efficiency
+        <small>
+          Considering your people, processes, and systems, how efficiently does your business operate on a day-to-day basis?
+        </small>
+      </label>
 
       <select
         name="operationsScore"
         value={formData.operationsScore}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">Select Your Rating</option>
+        <option value="1">1 - Needs Improvement</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Good</option>
+        <option value="4">4 - Very Good</option>
+        <option value="5">5 - Excellent</option>
       </select>
 
     </div>
@@ -1237,7 +1583,6 @@ return (
 </section>
 
 )}
-
 {/* ==========================================
     STEP 5 — EMPLOYEE GROWTH
 ========================================== */}
@@ -1248,31 +1593,49 @@ return (
 
   <div className="section-title">
 
-    <span className="step-number">
-      Step 5 of 8
-    </span>
+  <span className="step-number">
+    Employee Growth & Leadership™
+</span>
 
-    <h2>Employee Growth</h2>
+<h2>
+    Is Your Team Helping You Grow Your Business?
+</h2>
 
-    <p>
-      Strong businesses are built by strong teams. Help us understand your
-      current workforce challenges.
-    </p>
+<p>
+    Employees are one of the greatest assets—and often one of the biggest
+    challenges—for small businesses. This section helps identify opportunities
+    to improve recruiting, retention, leadership, employee well-being, and
+    long-term business growth.
+</p>
 
   </div>
+
+  <div className="section-tip">
+
+    👥 Great businesses are built by great people. Think about your team today—and where you want your business to be over the next 3–5 years.
+
+</div>
 
   <div className="brief-grid">
 
     <div className="form-group">
 
-      <label>Recruiting New Employees</label>
+      <label>
+
+    Recruiting & Hiring
+
+    <small>
+        How successful is your business at attracting and hiring qualified employees?
+    </small>
+
+</label>
 
       <select
         name="recruiting"
         value={formData.recruiting}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
+        <option value="">-- Please Select --</option>
         <option value="1">1 - Very Difficult</option>
         <option value="2">2 - Difficult</option>
         <option value="3">3 - Average</option>
@@ -1284,94 +1647,135 @@ return (
 
     <div className="form-group">
 
-      <label>Employee Retention</label>
+     <label>
+
+    Employee Retention
+
+    <small>
+        How successful is your business at keeping good employees long-term?
+    </small>
+
+</label>
 
       <select
         name="retentionEmployees"
         value={formData.retentionEmployees}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+     <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Leadership Development</label>
+      <label>
+
+    Leadership & Team Development
+
+    <small>
+        How effectively are you developing leaders and preparing your team for future growth?
+    </small>
+
+</label>
 
       <select
         name="leadership"
         value={formData.leadership}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+      <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Employee Morale</label>
+     <label>
+
+    Employee Engagement
+
+    <small>
+        How engaged, motivated, and committed is your team to the success of your business?
+    </small>
+
+</label>
 
       <select
         name="morale"
         value={formData.morale}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+        <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Employee Benefits</label>
+     <label>
+
+    Employee Benefits & Wellness
+
+    <small>
+        How well does your current employee benefits and wellness strategy help you attract, retain, and support quality employees?
+    </small>
+
+</label>
 
       <select
         name="benefits"
         value={formData.benefits}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+       <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Overall Team Strength</label>
+      <label>
+
+    Overall Team Strength
+
+    <small>
+        Considering recruiting, leadership, retention, and employee engagement, how would you rate the overall strength of your team?
+    </small>
+
+</label>
 
       <select
         name="teamStrength"
         value={formData.teamStrength}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <option value="">-- Please Select --</option>
+      <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
         <option value="5">5</option>
       </select>
 
@@ -1394,30 +1798,47 @@ return (
   <div className="section-title">
 
     <span className="step-number">
-      Step 6 of 8
-    </span>
+    Technology, Automation & Innovation™
+</span>
 
-    <h2>Technology & AI</h2>
+<h2>
+    Is Your Technology Helping Your Business Grow?
+</h2>
 
-    <p>
-      Technology should simplify your business, improve customer experience,
-      and create efficiency—not add more work.
-    </p>
+<p>
+    The right technology should help your business save time, improve customer
+    service, increase efficiency, and support growth. This section evaluates
+    how effectively your technology is working for your business.
+</p>
 
   </div>
+
+  <div className="section-tip">
+
+    🚀 Technology should support your business—not slow it down. Think about how your current tools help your team, your customers, and your overall business growth.
+
+</div>
 
   <div className="brief-grid">
 
     <div className="form-group">
 
-      <label>Website Performance</label>
+  
+<label>
 
+    Website & Online Presence
+
+    <small>
+        How effectively does your website attract customers, answer questions, generate leads, and support your business?
+    </small>
+
+</label>
       <select
         name="websiteTech"
         value={formData.websiteTech}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
+        <option value="">-- Please Select --</option>
         <option value="1">1 - Needs Improvement</option>
         <option value="2">2 - Fair</option>
         <option value="3">3 - Good</option>
@@ -1429,33 +1850,49 @@ return (
 
     <div className="form-group">
 
-      <label>CRM Utilization</label>
+      <label>
+
+    Customer & Lead Management
+
+    <small>
+        How effectively do you manage customer information, leads, follow-ups, and communication?
+    </small>
+
+</label>
 
       <select
         name="crmTech"
         value={formData.crmTech}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+        <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>AI & Automation Usage</label>
+      <label>
+
+    AI & Business Automation
+
+    <small>
+        How effectively does your business use AI or automation to save time, improve customer service, or increase productivity?
+    </small>
+
+</label>
 
       <select
         name="ai"
         value={formData.ai}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
+        <option value="">-- Please Select --</option>
         <option value="1">Not Using AI</option>
         <option value="2">Very Limited</option>
         <option value="3">Some AI</option>
@@ -1467,57 +1904,81 @@ return (
 
     <div className="form-group">
 
-      <label>Text / Email Automation</label>
+     <label>
+
+    Customer Communication Automation
+
+    <small>
+        How effectively does your business automate customer communication through email, text messaging, reminders, or follow-up campaigns?
+    </small>
+
+</label>
 
       <select
         name="texting"
         value={formData.texting}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+       <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Phone & Customer Communication</label>
+     <label>
+
+    Phone & Customer Communication
+
+    <small>
+        How effectively does your business answer calls, respond to inquiries, and communicate with customers throughout their journey?
+    </small>
+
+</label>
 
       <select
         name="phoneSystem"
         value={formData.phoneSystem}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+        <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Overall Technology Readiness</label>
+     <label>
+
+    Overall Technology Readiness
+
+    <small>
+        Considering your website, automation, AI, customer communication, and business systems, how prepared is your business to support future growth?
+    </small>
+
+</label>
 
       <select
         name="technologyScore"
         value={formData.technologyScore}
         onChange={handleChange}
       >
-        <option value="">Select Rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value="">-- Please Select --</option>
+       <option value="1">1 - Needs Improvement</option>
+<option value="2">2 - Fair</option>
+<option value="3">3 - Good</option>
+<option value="4">4 - Very Good</option>
+<option value="5">5 - Excellent</option>
       </select>
 
     </div>
@@ -1538,15 +1999,25 @@ return (
   <div className="section-title">
 
     <span className="step-number">
-      Step 7 of 8
+      Business Priorities & Future Growth™
     </span>
 
-    <h2>Your Business Priorities</h2>
+    <h2>
+      Where Do You Want Your Business To Go Next?
+    </h2>
 
     <p>
-      Every business is different. Tell us what matters most to you over the
-      next 12 months.
+      Every business has different goals and challenges. Help us understand
+      what matters most to you so your Executive Business Growth Brief™ reflects
+      your priorities—not generic recommendations.
     </p>
+
+  </div>
+
+  <div className="section-tip">
+
+    🎯 There are no right or wrong answers. Your responses help us prioritize
+    the recommendations that will have the greatest impact on your business.
 
   </div>
 
@@ -1561,15 +2032,19 @@ return (
         value={formData.primaryGoal}
         onChange={handleChange}
       >
-        <option value="">Select One</option>
+
+       
+<option value="">-- Please Select --</option>
         <option>Increase Revenue</option>
-        <option>Generate More Leads</option>
-        <option>Improve Customer Experience</option>
-        <option>Improve Operations</option>
-        <option>Recruit Better Employees</option>
-        <option>Retain Employees</option>
-        <option>Implement AI</option>
         <option>Increase Profitability</option>
+        <option>Improve Cash Flow</option>
+        <option>Generate More Qualified Leads</option>
+        <option>Improve Customer Retention</option>
+        <option>Grow My Business</option>
+        <option>Hire & Retain Better Employees</option>
+        <option>Save Time Through Better Systems</option>
+        <option>Prepare My Business for the Future</option>
+
       </select>
 
     </div>
@@ -1583,51 +2058,65 @@ return (
         value={formData.biggestChallenge}
         onChange={handleChange}
       >
-        <option value="">Select One</option>
+
+        <option value="">-- Please Select --</option>
         <option>Finding New Customers</option>
+        <option>Customer Reactivation</option>
         <option>Following Up With Leads</option>
-        <option>Hiring Employees</option>
-        <option>Keeping Employees</option>
-        <option>Technology</option>
+        <option>Hiring & Retaining Employees</option>
+        <option>Increasing Profitability</option>
+        <option>Saving Time</option>
         <option>Marketing</option>
-        <option>Time Management</option>
-        <option>Operations</option>
+        <option>Technology & Automation</option>
+        <option>Business Operations</option>
+
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Interested In Learning More About</label>
+      <label>What Would You Like To Improve Most?</label>
 
       <select
         name="interest"
         value={formData.interest}
         onChange={handleChange}
       >
+
         <option value="">Select One</option>
-        <option>Smart Website™</option>
-        <option>AI Big 3™</option>
-        <option>Business Automation™</option>
-        <option>Employee Growth Solutions™</option>
-        <option>Revenue Growth Strategy™</option>
-        <option>Everything</option>
+
+        <option>Finding Hidden Revenue Opportunities</option>
+        <option>Customer Reactivation</option>
+        <option>Improving Customer Experience</option>
+        <option>Saving Time Through Automation</option>
+        <option>Business Technology & AI</option>
+        <option>Employee Growth & Retention</option>
+        <option>Affordable Employee Wellness Options</option>
+        <option>Overall Business Growth</option>
+
       </select>
 
     </div>
 
     <div className="form-group">
 
-      <label>Would You Like a Complimentary Strategy Session?</label>
+      <label>
+        Would You Like A Complimentary Business Growth Overview™?
+      </label>
 
       <select
         name="strategySession"
         value={formData.strategySession}
         onChange={handleChange}
       >
-        <option value="">Select</option>
-        <option>Yes</option>
-        <option>No</option>
+
+        <option value="">Select One</option>
+
+        <option>Yes, I'd Like To Schedule One</option>
+        <option>Maybe After Reviewing My Snapshot</option>
+        <option>Not At This Time</option>
+
       </select>
 
     </div>
@@ -1639,128 +2128,149 @@ return (
 )}
 
 {/* ==========================================
-    STEP 8 — REVIEW & SUBMIT
+    STEP 8 — EXECUTIVE REVIEW
 ========================================== */}
 
 {step === 8 && (
 
-<section className="brief-section">
+  <section className="brief-section">
 
-  <div className="section-title">
+    <div className="section-title">
 
-    <span className="step-number">
-      Final Step
-    </span>
+      <span className="step-number">
+        Executive Business Growth Discovery™ Complete
+      </span>
 
-    <h2>You're Almost Finished!</h2>
+      <h2>
+        Thank You!
+      </h2>
 
-    <p>
-      Thank you for completing your Business Growth IQ™ Assessment.
-      Before generating your Executive Business Opportunity Brief™, here's what we've completed.
-    </p>
+      <p>
+        Thank you for completing your Executive Business Growth Discovery™.
+        Your responses provide valuable insight into your business and will
+        help us identify opportunities to increase revenue, improve operations,
+        strengthen customer relationships, leverage technology, and position
+        your business for long-term growth.
+      </p>
 
-  </div>
+    </div>
 
-  <div className="summary-card">
+    <div className="review-card">
 
-    <h3>Assessment Complete</h3>
+      <h3>What Happens Next?</h3>
 
-    <ul className="summary-checklist">
+      <div className="review-list">
 
-      <li>✅ Business Information Reviewed</li>
+        <div className="review-item">
+          ✅ We'll review your Executive Business Growth Discovery™.
+        </div>
 
-      <li>✅ Business Growth Evaluated</li>
+        <div className="review-item">
+          ✅ We'll identify your greatest business growth opportunities.
+        </div>
 
-      <li>✅ Customer Experience Evaluated</li>
+        <div className="review-item">
+          ✅ We'll contact you to schedule your Complimentary Business Growth Overview™.
+        </div>
 
-      <li>✅ Business Operations Reviewed</li>
+        <div className="review-item">
+          ✅ Following our overview, we'll prepare your customized Executive Business Growth Brief™ with recommendations tailored specifically to your business.
+        </div>
 
-      <li>✅ Employee Growth Reviewed</li>
+      </div>
 
-      <li>✅ Technology & AI Readiness Reviewed</li>
+    </div>
 
-      <li>✅ Business Priorities Identified</li>
+    <div className="promise-card">
 
-    </ul>
+      <h3>The 12 Stone Promise™</h3>
 
-  </div>
+      <p>
+        Every business is unique. That's why we don't generate generic reports
+        or cookie-cutter recommendations.
+      </p>
 
-  <div className="summary-card">
+      <p>
+        Your Executive Business Growth Brief™ is professionally reviewed and
+        customized based on your discovery, your business goals, your challenges,
+        and your opportunities.
+      </p>
 
-    <h3>Your Executive Business Opportunity Brief™ Will Include</h3>
+      <p>
+        <strong>
+          Our mission is simple: Help you build a stronger, more profitable business.
+        </strong>
+      </p>
 
-    <ul className="summary-checklist">
+    </div>
 
-      <li>📈 Revenue Growth Opportunities</li>
-
-      <li>⚙ Operational Improvement Recommendations</li>
-
-      <li>🤝 Customer Experience Insights</li>
-
-      <li>👥 Employee Growth Recommendations</li>
-
-      <li>🤖 AI & Technology Opportunities</li>
-
-      <li>📊 Business Opportunity Score™</li>
-
-      <li>🎯 Executive Recommendations</li>
-
-    </ul>
-
-  </div>
-
-  <div className="summary-card">
-
-    <h3>Next Step</h3>
-
-    <p>
-
-      Click the button below to generate your complimentary
-      Executive Business Opportunity Brief™.
-
-    </p>
-
-  </div>
-
-</section>
+  </section>
 
 )}
 
-        {/* ==========================================
-            NAVIGATION
-        ========================================== */}
 
-        <div className="brief-buttons">
+{validationMessage && (
+  <div
+    className="validation-message"
+    role="alert"
+    aria-live="polite"
+  >
+    ⚠️ {validationMessage}
+  </div>
+)}
 
-          {step > 1 && (
-            <button
-              onClick={() => setStep(step - 1)}
-            >
-              Previous
-            </button>
-          )}
+<div className="brief-navigation">
 
-          {step < 8 ? (
-         <button
-  onClick={handleNext}
->
-  Next
-</button>
-          ) : (
-           <button
-  onClick={() =>
-    navigate("/snapshot", {
-      state: formData,
-    })
-  }
->
-  Generate My Executive Business Opportunity Brief™
-</button>
-          )}
+  {step > 0 && (
+    <button
+      type="button"
+      className="secondary-button"
+      onClick={() => {
+        setStep(step - 1);
+        setValidationMessage("");
+      }}
+    >
+      ← Previous
+    </button>
+  )}
 
-        </div>
-  </div> 
-      </div>
-    </main>
-  );
+  {step < 8 ? (
+    <button
+      type="button"
+      className="primary-button"
+      onClick={handleNext}
+    >
+      Continue →
+    </button>
+  ) : (
+    <button
+      type="button"
+      className="primary-button"
+      onClick={() => {
+
+        const growthProfile = buildBusinessResults();
+
+        localStorage.setItem(
+          "growthProfile",
+          JSON.stringify(growthProfile)
+        );
+
+        navigate("/executive-snapshot");
+
+      }}
+    >
+      Submit Assessment
+    </button>
+  )}
+
+
+</div>
+
+    </div>
+  </div>
+</main>
+
+);
+
 }
+

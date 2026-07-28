@@ -15,6 +15,8 @@ import PlumbingLanding from "./contractor/plumbing/PlumbingLanding";
 import ElectricalLanding from "./contractor/electrical/ElectricalLanding";
 import RoofingLanding from "./contractor/roofing/RoofingLanding";
 
+import ExecutiveSnapshot from "./pages/ExecutiveSnapshot";
+
 
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
   <Route path="/contractors/plumbing" element={<PlumbingLanding />} />
   <Route path="/contractors/electrical" element={<ElectricalLanding />} />
   <Route path="/contractors/roofing" element={<RoofingLanding />} />
+
+<Route path="/executive-snapshot" element={<ExecutiveSnapshot />}/>
+
 </Routes>
     </BrowserRouter>
   );
