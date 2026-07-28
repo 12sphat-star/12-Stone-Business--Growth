@@ -124,93 +124,78 @@ export default function BusinessOpportunitySnapshot() {
             DASHBOARD
         =========================== */}
 
-        <section className="score-grid">
+        <section className="snapshot-dashboard">
 
-          <article className="score-card">
+  <div className="dashboard-title">
 
-            <FiDollarSign />
+    <span className="section-eyebrow">
+      Business Growth IQ™
+    </span>
 
-            <h3>Revenue</h3>
+    <h2>
+      Executive Dashboard
+    </h2>
 
-            <strong>
+    <p>
+      Your Business Growth IQ™ Dashboard provides an executive-level view of the six core areas that influence long-term business growth.
+    </p>
 
-              {analysis.revenue}%
+  </div>
 
-            </strong>
+  <div className="dashboard-grid">
 
-          </article>
+    <div className="dashboard-card">
+      <div className="dashboard-icon">📈</div>
+      <h3>Revenue Growth™</h3>
+      <div className="dashboard-score">Strong</div>
+      <small>Growth Opportunity</small>
+    </div>
 
-          <article className="score-card">
+    <div className="dashboard-card">
+      <div className="dashboard-icon">🤝</div>
+      <h3>Customer Experience™</h3>
+      <div className="dashboard-score">Good</div>
+      <small>Moderate Opportunity</small>
+    </div>
 
-            <FiStar />
+    <div className="dashboard-card featured">
 
-            <h3>Customer</h3>
+      <small>Business Growth IQ™ Score</small>
 
-            <strong>
+      <div className="featured-score">
+        74
+      </div>
 
-              {analysis.customer}%
+      <span>
+        Preliminary Assessment
+      </span>
 
-            </strong>
+    </div>
 
-          </article>
+    <div className="dashboard-card">
+      <div className="dashboard-icon">⚙️</div>
+      <h3>Business Operations™</h3>
+      <div className="dashboard-score">Fair</div>
+      <small>High Opportunity</small>
+    </div>
 
-          <article className="score-card">
+    <div className="dashboard-card">
+      <div className="dashboard-icon">💻</div>
+      <h3>Technology & AI™</h3>
+      <div className="dashboard-score">Needs Attention</div>
+      <small>Immediate Opportunity</small>
+    </div>
 
-            <FiSettings />
+    <div className="dashboard-card">
+      <div className="dashboard-icon">👥</div>
+      <h3>Employee Growth™</h3>
+      <div className="dashboard-score">Good</div>
+      <small>Moderate Opportunity</small>
+    </div>
 
-            <h3>Operations</h3>
+  </div>
 
-            <strong>
-
-              {analysis.operations}%
-
-            </strong>
-
-          </article>
-
-          <article className="score-card">
-
-            <FiUsers />
-
-            <h3>Workforce</h3>
-
-            <strong>
-
-              {analysis.employees}%
-
-            </strong>
-
-          </article>
-
-          <article className="score-card">
-
-            <FiCpu />
-
-            <h3>Technology</h3>
-
-            <strong>
-
-              {analysis.technology}%
-
-            </strong>
-
-          </article>
-
-          <article className="score-card">
-
-            <FiTrendingUp />
-
-            <h3>Priority</h3>
-
-            <strong>
-
-              {analysis.priorityLevel}
-
-            </strong>
-
-          </article>
-
-        </section>
+</section>
 
         {/* ==========================
             REVENUE OPPORTUNITY
