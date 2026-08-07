@@ -965,3 +965,153 @@ CTA
     background:#059669;
 
 }
+
+/* =====================================================
+   MOBILE / TABLET RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .snapshot-container {
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .dashboard-card.featured {
+    order: -1;
+    grid-column: 1 / -1;
+  }
+
+  .blueprint-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+
+  .snapshot-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .snapshot-header {
+    padding-top: 40px;
+    padding-bottom: 35px;
+  }
+
+  .snapshot-header h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .snapshot-header p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+
+  /* BUSINESS GROWTH IQ */
+
+  .overall-score {
+    padding: 40px 20px;
+  }
+
+  .overall-score h2 {
+    font-size: 3.5rem;
+  }
+
+
+  /* EXECUTIVE DASHBOARD */
+
+  .dashboard-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-title p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dashboard-card {
+    min-height: auto;
+    padding: 28px 20px;
+  }
+
+  .dashboard-card.featured {
+    order: -1;
+  }
+
+  .featured-score {
+    font-size: 3.5rem;
+  }
+
+
+  /* REVENUE OPPORTUNITY */
+
+  .revenue-opportunity {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .revenue-box {
+    padding: 30px 20px;
+  }
+
+  .revenue-box h1 {
+    font-size: 2rem;
+  }
+
+
+  /* EXECUTIVE SUMMARY */
+
+  .executive-summary {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  /* BLUEPRINT */
+
+  .blueprint-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .blueprint-card {
+    padding: 24px 20px;
+  }
+
+
+  /* CTA */
+
+  .snapshot-cta {
+    padding: 45px 20px;
+  }
+
+  .snapshot-cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .snapshot-cta .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+}

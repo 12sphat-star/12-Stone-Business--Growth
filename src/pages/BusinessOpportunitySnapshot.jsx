@@ -92,6 +92,34 @@ const demoData = {
 
 };
 
+const getScoreRating = (score) => {
+  if (score >= 80) {
+    return {
+      rating: "Excellent",
+      opportunity: "Low Opportunity",
+    };
+  }
+
+  if (score >= 60) {
+    return {
+      rating: "Strong",
+      opportunity: "Growth Opportunity",
+    };
+  }
+
+if (score >= 40) {
+  return {
+    rating: "Developing",
+    opportunity: "High Opportunity",
+  };
+}
+
+return {
+  rating: "Priority Area",
+  opportunity: "Immediate Opportunity",
+};
+};
+
 export default function BusinessOpportunitySnapshot() {
 
   const location = useLocation();
@@ -164,11 +192,11 @@ export default function BusinessOpportunitySnapshot() {
 
         </section>
 
-        {/* ==========================
-            DASHBOARD
-        =========================== */}
+       {/* ==========================
+    DASHBOARD
+=========================== */}
 
-        <section className="snapshot-dashboard">
+<section className="snapshot-dashboard">
 
   <div className="dashboard-title">
 
@@ -181,7 +209,8 @@ export default function BusinessOpportunitySnapshot() {
     </h2>
 
     <p>
-      Your Business Growth IQ™ Dashboard provides an executive-level view of the six core areas that influence long-term business growth.
+      Your Business Growth IQ™ Dashboard provides an executive-level
+      view of the five core areas that influence long-term business growth.
     </p>
 
   </div>
@@ -190,25 +219,43 @@ export default function BusinessOpportunitySnapshot() {
 
     <div className="dashboard-card">
       <div className="dashboard-icon">📈</div>
+
       <h3>Revenue Growth™</h3>
-      <div className="dashboard-score">Strong</div>
-      <small>Growth Opportunity</small>
+
+      <div className="dashboard-score">
+        {getScoreRating(analysis.revenue).rating}
+      </div>
+
+      <small>
+        {getScoreRating(analysis.revenue).opportunity}
+      </small>
     </div>
+
 
     <div className="dashboard-card">
       <div className="dashboard-icon">🤝</div>
+
       <h3>Customer Experience™</h3>
-      <div className="dashboard-score">Good</div>
-      <small>Moderate Opportunity</small>
+
+      <div className="dashboard-score">
+        {getScoreRating(analysis.customer).rating}
+      </div>
+
+      <small>
+        {getScoreRating(analysis.customer).opportunity}
+      </small>
     </div>
+
 
     <div className="dashboard-card featured">
 
-      <small>Business Growth IQ™ Score</small>
+      <small>
+        Business Growth IQ™ Score
+      </small>
 
-     <div className="featured-score">
-  {analysis.overallScore}
-</div>
+      <div className="featured-score">
+        {analysis.overallScore}
+      </div>
 
       <span>
         Preliminary Assessment
@@ -216,42 +263,63 @@ export default function BusinessOpportunitySnapshot() {
 
     </div>
 
+
     <div className="dashboard-card">
       <div className="dashboard-icon">⚙️</div>
+
       <h3>Business Operations™</h3>
-      <div className="dashboard-score">Fair</div>
-      <small>High Opportunity</small>
+
+      <div className="dashboard-score">
+        {getScoreRating(analysis.operations).rating}
+      </div>
+
+      <small>
+        {getScoreRating(analysis.operations).opportunity}
+      </small>
     </div>
+
 
     <div className="dashboard-card">
       <div className="dashboard-icon">💻</div>
+
       <h3>Technology & AI™</h3>
-      <div className="dashboard-score">Needs Attention</div>
-      <small>Immediate Opportunity</small>
+
+      <div className="dashboard-score">
+        {getScoreRating(analysis.technology).rating}
+      </div>
+
+      <small>
+        {getScoreRating(analysis.technology).opportunity}
+      </small>
     </div>
+
 
     <div className="dashboard-card">
       <div className="dashboard-icon">👥</div>
+
       <h3>Employee Growth™</h3>
-      <div className="dashboard-score">Good</div>
-      <small>Moderate Opportunity</small>
+
+      <div className="dashboard-score">
+        {getScoreRating(analysis.employees).rating}
+      </div>
+
+      <small>
+        {getScoreRating(analysis.employees).opportunity}
+      </small>
     </div>
 
   </div>
 
 </section>
-
         {/* ==========================
             REVENUE OPPORTUNITY
         =========================== */}
 
         <section className="revenue-opportunity">
 
-          <h2>
-
-            Estimated Revenue Opportunity
-
-          </h2>
+         <h2>
+  Business Growth Opportunity
+</h2>
 
           <div className="revenue-box">
 
@@ -261,12 +329,11 @@ export default function BusinessOpportunitySnapshot() {
 
             </h1>
 
-            <p>
-
-              Estimated annual business opportunity
-              based on your assessment.
-
-            </p>
+          <p>
+  Your assessment indicates opportunities to strengthen revenue,
+  operations, customer experience, workforce performance, and technology.
+  A strategy session can help quantify the potential financial impact.
+</p>
 
           </div>
 
@@ -657,15 +724,12 @@ export default function BusinessOpportunitySnapshot() {
           </div>
 
           <Link
-            to="/contact"
-            className="button button-primary"
-          >
-
-            Schedule My Strategy Session
-
-            <FiArrowRight />
-
-          </Link>
+  to="/contact"
+  className="button button-primary"
+>
+  Review My Business Growth Report
+  <FiArrowRight />
+</Link>
 
         </section>
 

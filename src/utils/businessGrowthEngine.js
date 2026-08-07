@@ -23,29 +23,31 @@ export function businessGrowthEngine(formData) {
     );
 
     recommendedServices.push("Business Growth Strategy™");
-    growthBlueprint.push({
+   growthBlueprint.push({
 
   priority: 1,
 
-  pillar: "Revenue Growth",
+  pillar: "Revenue Growth™",
 
-  finding:
-    "Revenue growth appears to be limited by opportunities in lead conversion, customer follow-up, or sales effectiveness.",
+  diagnosis: "Opportunity",
 
   impact: "High",
 
+  finding:
+    "Your assessment indicates opportunities to strengthen lead conversion, customer follow-up, retention, and sales effectiveness.",
+
   solution: "Business Growth Strategy™",
 
-  expectedOutcome:
-    "Increase revenue by improving lead conversion, customer retention, and overall sales performance."
+  businessImpact:
+    "Improve lead conversion, strengthen customer retention, and create a more consistent process for generating revenue."
 
 });
 
-  } else {
+} else {
 
-    strengths.push("Revenue Growth");
+  strengths.push("Revenue Growth");
 
-  }
+}
 
   //======================================================
   // CUSTOMER EXPERIENCE
@@ -253,43 +255,115 @@ export function businessGrowthEngine(formData) {
   }
 
   //======================================================
-  // ESTIMATED REVENUE OPPORTUNITY
+// GROWTH OPPORTUNITY
+//======================================================
+
+let estimatedRevenueOpportunity = "Optimization Opportunity";
+
+if (score.overall < 40) {
+
+  estimatedRevenueOpportunity = "Significant Growth Opportunity";
+
+} else if (score.overall < 60) {
+
+  estimatedRevenueOpportunity = "High Growth Opportunity";
+
+} else if (score.overall < 80) {
+
+  estimatedRevenueOpportunity = "Strong Growth Opportunity";
+
+}
+
   //======================================================
+// PERSONALIZED EXECUTIVE SUMMARY
+//======================================================
 
-  let estimatedRevenueOpportunity = "$25,000 - $75,000";
+const scoreAreas = [
+  {
+    name: "Revenue Growth",
+    score: score.revenue,
+  },
+  {
+    name: "Customer Experience",
+    score: score.customer,
+  },
+  {
+    name: "Business Operations",
+    score: score.operations,
+  },
+  {
+    name: "Employee Growth",
+    score: score.employees,
+  },
+  {
+    name: "Technology & AI",
+    score: score.technology,
+  },
+];
 
-  if (score.overall < 40) {
+const rankedAreas = [...scoreAreas].sort(
+  (a, b) => a.score - b.score
+);
 
-    estimatedRevenueOpportunity = "$150,000 - $300,000";
+const primaryOpportunity = rankedAreas[0]?.name;
+const secondaryOpportunity = rankedAreas[1]?.name;
 
-  } else if (score.overall < 60) {
+const strongestArea =
+  [...scoreAreas].sort((a, b) => b.score - a.score)[0]?.name;
 
-    estimatedRevenueOpportunity = "$75,000 - $150,000";
+let executiveSummary = "";
 
-  } else if (score.overall < 80) {
+if (score.overall < 40) {
 
-    estimatedRevenueOpportunity = "$35,000 - $100,000";
+  executiveSummary =
+    `Your Business Growth IQ™ Assessment identifies significant opportunities for improvement, with ${primaryOpportunity} and ${secondaryOpportunity} representing the highest-priority areas. Strengthening these areas could improve business performance, efficiency, and long-term growth. Your strongest area is currently ${strongestArea}, providing a foundation to build upon.`;
 
-  }
+} else if (score.overall < 60) {
 
+  executiveSummary =
+    `Your business demonstrates meaningful growth potential. The assessment identifies ${primaryOpportunity} and ${secondaryOpportunity} as the areas offering the greatest opportunity for improvement. Your strongest performance is currently in ${strongestArea}. Focusing on the highest-priority opportunities can help strengthen overall business performance and create a more scalable growth foundation.`;
+
+} else if (score.overall < 80) {
+
+  executiveSummary =
+    `Your business demonstrates a solid growth foundation with several areas performing well. The greatest opportunities identified are in ${primaryOpportunity} and ${secondaryOpportunity}, while ${strongestArea} currently represents your strongest area of performance. Strategic improvements in the priority areas can help strengthen efficiency, customer value, and future growth capacity.`;
+
+} else {
+
+  executiveSummary =
+    `Your assessment indicates a strong overall business foundation. ${strongestArea} is currently your strongest area of performance, while ${primaryOpportunity} and ${secondaryOpportunity} represent the best opportunities for continued optimization. At this stage, the focus should be on refinement, scalability, and protecting the systems already contributing to strong performance.`;
+
+}
   //======================================================
-  // EXECUTIVE SUMMARY
-  //======================================================
+// DYNAMIC BLUEPRINT PRIORITY
+//======================================================
 
-  let executiveSummary =
-    "Your business demonstrates a solid foundation with opportunities to improve efficiency, customer experience, and long-term growth.";
+const pillarScores = {
+  "Revenue Growth™": score.revenue,
+  "Revenue Growth": score.revenue,
 
-  if (score.overall < 40) {
+  "Customer Experience": score.customer,
 
-    executiveSummary =
-      "Your assessment indicates several high-impact opportunities that could significantly improve profitability, operations, customer experience, and long-term business growth.";
+  "Business Operations": score.operations,
 
-  } else if (score.overall < 60) {
+  "Workforce Growth™": score.employees,
 
-    executiveSummary =
-      "Your business has solid growth potential. Focusing on the identified opportunity areas could improve efficiency, customer satisfaction, employee retention, and revenue.";
+  "Technology & AI": score.technology,
+};
 
-  }
+growthBlueprint.sort((a, b) => {
+
+  const scoreA = pillarScores[a.pillar] ?? 100;
+  const scoreB = pillarScores[b.pillar] ?? 100;
+
+  return scoreA - scoreB;
+
+});
+
+growthBlueprint.forEach((item, index) => {
+  item.priority = index + 1;
+});
+
 
   //======================================================
   // REMOVE DUPLICATES
