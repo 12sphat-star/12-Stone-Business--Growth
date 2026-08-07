@@ -1,6 +1,13 @@
 export function calculateBusinessScore(formData) {
 
-  const score = (value) => Number(value || 0);
+ const score = (value) => {
+  const numericValue = Number(value);
+  return Number.isFinite(numericValue) ? numericValue : 0;
+};
+
+  //======================================================
+  // REVENUE & GROWTH
+  //======================================================
 
   const revenue =
     (
@@ -12,45 +19,70 @@ export function calculateBusinessScore(formData) {
       score(formData.salesProcess)
     ) / 6;
 
+
+  //======================================================
+  // CUSTOMER EXPERIENCE
+  //======================================================
+
   const customer =
     (
-      score(formData.websiteScore) +
-      score(formData.reviews) +
-      score(formData.response) +
-      score(formData.communication) +
-      score(formData.customerFollowup) +
+      score(formData.leadResponse) +
+      score(formData.onlineReviews) +
+      score(formData.customerCommunication) +
+      score(formData.customerFollowUp) +
+      score(formData.repeatBusiness) +
       score(formData.customerSatisfaction)
     ) / 6;
+
+
+  //======================================================
+  // BUSINESS OPERATIONS
+  //======================================================
 
   const operations =
     (
       score(formData.scheduling) +
+      score(formData.dispatching) +
       score(formData.workflow) +
-      score(formData.automation) +
-      score(formData.crm) +
-      score(formData.reporting) +
-      score(formData.operationsScore)
+      score(formData.communication) +
+      score(formData.documentation) +
+      score(formData.operations)
     ) / 6;
+
+
+  //======================================================
+  // EMPLOYEE GROWTH
+  //======================================================
 
   const employees =
     (
       score(formData.recruiting) +
       score(formData.retentionEmployees) +
-      score(formData.leadership) +
-      score(formData.morale) +
+      score(formData.training) +
       score(formData.benefits) +
-      score(formData.teamStrength)
+      score(formData.performance) +
+      score(formData.culture)
     ) / 6;
+
+
+  //======================================================
+  // TECHNOLOGY & AI
+  //======================================================
 
   const technology =
     (
-      score(formData.websiteTech) +
-      score(formData.crmTech) +
+      score(formData.website) +
+      score(formData.crm) +
+      score(formData.marketingAutomation) +
       score(formData.ai) +
-      score(formData.texting) +
-      score(formData.phoneSystem) +
-      score(formData.technologyScore)
+      score(formData.reporting) +
+      score(formData.technologyIntegration)
     ) / 6;
+
+
+  //======================================================
+  // OVERALL BUSINESS GROWTH IQ
+  //======================================================
 
   const overall =
     (
@@ -60,6 +92,11 @@ export function calculateBusinessScore(formData) {
       employees +
       technology
     ) / 5;
+
+
+  //======================================================
+  // RETURN SCORES
+  //======================================================
 
   return {
 
@@ -73,7 +110,7 @@ export function calculateBusinessScore(formData) {
 
     employees: Math.round(employees * 20),
 
-    technology: Math.round(technology * 20)
+    technology: Math.round(technology * 20),
 
   };
 

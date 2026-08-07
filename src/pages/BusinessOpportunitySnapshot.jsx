@@ -1,4 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
+
+import { businessGrowthEngine } from "../utils/businessGrowthEngine";
+
 import {
   FiTrendingUp,
   FiDollarSign,
@@ -11,50 +15,90 @@ import {
 } from "react-icons/fi";
 
 import "../styles/businessOpportunitySnapshot.css";
-import { businessGrowthEngine } from "../utils/businessGrowthEngine";
+
 
 const demoData = {
 
-  revenueGrowth:4,
-  newCustomers:3,
-  followUp:4,
-  retention:4,
-  referrals:3,
-  salesProcess:4,
+  //======================================================
+  // REVENUE & GROWTH
+  //======================================================
 
-  websiteScore:3,
-  reviews:4,
-  response:5,
-  communication:4,
-  customerFollowup:4,
-  customerSatisfaction:5,
+  revenueGrowth: 4,
+  newCustomers: 3,
+  followUp: 4,
+  retention: 4,
+  referrals: 3,
+  salesProcess: 4,
 
-  scheduling:3,
-  workflow:3,
-  automation:2,
-  crm:3,
-  reporting:3,
-  operationsScore:3,
 
-  recruiting:2,
-  retentionEmployees:3,
-  leadership:3,
-  morale:4,
-  benefits:2,
-  teamStrength:3,
+  //======================================================
+  // CUSTOMER EXPERIENCE
+  //======================================================
 
-  websiteTech:3,
-  crmTech:2,
-  ai:1,
-  texting:3,
-  phoneSystem:4,
-  technologyScore:3
+  leadResponse: 3,
+  onlineReviews: 4,
+  customerCommunication: 4,
+  customerFollowUp: 4,
+  repeatBusiness: 4,
+  customerSatisfaction: 5,
+
+
+  //======================================================
+  // BUSINESS OPERATIONS
+  //======================================================
+
+  scheduling: 3,
+  dispatching: 3,
+  workflow: 3,
+  communication: 3,
+  documentation: 2,
+  operations: 3,
+
+
+  //======================================================
+  // EMPLOYEE GROWTH
+  //======================================================
+
+  recruiting: 2,
+  retentionEmployees: 3,
+  training: 3,
+  benefits: 2,
+  performance: 3,
+  culture: 4,
+
+
+  //======================================================
+  // TECHNOLOGY & AI
+  //======================================================
+
+  website: 3,
+  crm: 2,
+  marketingAutomation: 2,
+  ai: 1,
+  reporting: 3,
+  technologyIntegration: 2,
+
+
+  //======================================================
+  // BUSINESS PRIORITIES
+  //======================================================
+
+  revenuePriority: 3,
+  leadGeneration: 3,
+  profitability: 3,
+  businessSystems: 3,
+  growthReadiness: 3,
+  businessConfidence: 4,
 
 };
 
 export default function BusinessOpportunitySnapshot() {
 
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const formData = location.state || demoData;
 
@@ -162,9 +206,9 @@ export default function BusinessOpportunitySnapshot() {
 
       <small>Business Growth IQ™ Score</small>
 
-      <div className="featured-score">
-        74
-      </div>
+     <div className="featured-score">
+  {analysis.overallScore}
+</div>
 
       <span>
         Preliminary Assessment
