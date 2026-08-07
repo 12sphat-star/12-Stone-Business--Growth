@@ -5,6 +5,8 @@ export default function BusinessProfileStep({
   return (
     <section className="brief-section">
 
+      
+
       <div className="section-title">
 
         <span className="step-number">

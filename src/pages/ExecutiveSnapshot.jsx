@@ -5,24 +5,58 @@ export default function ExecutiveSnapshot() {
     <main className="snapshot-page">
 
   {/* ==========================================
-      HERO
-  ========================================== */}
+    HERO
+========================================== */}
 
-  <section className="snapshot-hero">
+<section className="snapshot-hero">
 
-    <span className="snapshot-eyebrow">
-      12 Stone Consulting
-    </span>
+  <span className="snapshot-eyebrow">
+    12 Stone Consulting
+  </span>
 
-    <h1>
-      Executive Business Growth Snapshot™
-    </h1>
+  <h1>
+    Executive Business Growth Snapshot™
+  </h1>
 
-    <p className="snapshot-subtitle">
-      Your Initial Business Growth Analysis
-    </p>
+  <p className="snapshot-subtitle">
 
-  </section>
+    Prepared Exclusively For
+
+  </p>
+
+  <h2 className="business-name">
+    Your Business Name
+</h2>
+
+  <div className="hero-meta">
+
+    <div>
+
+      <small>Assessment</small>
+
+      <strong>Business Growth IQ™</strong>
+
+    </div>
+
+    <div>
+
+      <small>Generated</small>
+
+      <strong>July 28, 2026</strong>
+
+    </div>
+
+    <div>
+
+      <small>Status</small>
+
+      <strong>Complete</strong>
+
+    </div>
+
+  </div>
+
+</section>
 
   {/* ==========================================
     BUSINESS OVERVIEW
@@ -200,6 +234,55 @@ export default function ExecutiveSnapshot() {
 
   </div>
 
+{/* ==========================================
+    BUSINESS GROWTH OBSERVATIONS™
+========================================== */}
+
+<div className="observations-grid">
+
+  <div className="observation-card">
+
+    <div className="finding-title">HIGH OPPORTUNITY</div>
+
+    <h3>📈 Revenue Growth</h3>
+
+    <p>
+      Your current lead management process appears to have opportunities
+      for improvement through faster response time, better follow-up,
+      and stronger customer conversion.
+    </p>
+
+  </div>
+
+  <div className="observation-card">
+
+    <div className="finding-title">HIGH OPPORTUNITY</div>
+
+    <h3>⚙️ Business Operations</h3>
+
+    <p>
+      Several administrative processes appear suitable for automation,
+      improving efficiency while reducing repetitive work and freeing
+      staff for higher-value activities.
+    </p>
+
+  </div>
+
+  <div className="observation-card">
+
+    <div className="finding-title">IMMEDIATE OPPORTUNITY</div>
+
+    <h3>🤖 Technology & AI</h3>
+
+    <p>
+      Modern business technology and AI solutions could improve customer
+      responsiveness, communication, reporting, and long-term scalability.
+    </p>
+
+  </div>
+
+</div>
+
 </section>
   
 
@@ -229,37 +312,97 @@ export default function ExecutiveSnapshot() {
 
   <div className="opportunity-grid">
 
-    <div className="opportunity-card high">
-      <h3>Revenue Growth™</h3>
-      <span>High Opportunity</span>
-    </div>
+ <div className="opportunity-card high">
 
-    <div className="opportunity-card moderate">
-      <h3>Customer Experience™</h3>
-      <span>Moderate Opportunity</span>
-    </div>
+  <div className="finding-title">PRIORITY 1</div>
 
-    <div className="opportunity-card high">
-      <h3>Business Operations™</h3>
-      <span>High Opportunity</span>
-    </div>
+  <h3>📈 Revenue Growth™</h3>
 
-    <div className="opportunity-card high">
-      <h3>Technology & AI™</h3>
-      <span>Immediate Opportunity</span>
-    </div>
+  <p>
+    Improve lead response, follow-up consistency, and customer conversion
+    to increase revenue opportunities.
+  </p>
 
-    <div className="opportunity-card moderate">
-      <h3>Employee Growth™</h3>
-      <span>Moderate Opportunity</span>
-    </div>
+  <span>High Opportunity</span>
 
-    <div className="opportunity-card low">
-      <h3>Business Intelligence™</h3>
-      <span>Foundation Strength</span>
-    </div>
+</div>
 
-  </div>
+<div className="opportunity-card moderate">
+
+  <div className="finding-title">PRIORITY 2</div>
+
+  <h3>🤝 Customer Experience™</h3>
+
+  <p>
+    Enhance communication and customer engagement to strengthen retention
+    and referrals.
+  </p>
+
+  <span>Moderate Opportunity</span>
+
+</div>
+
+<div className="opportunity-card high">
+
+  <div className="finding-title">PRIORITY 3</div>
+
+  <h3>⚙️ Business Operations™</h3>
+
+  <p>
+    Streamline workflows and automate repetitive administrative tasks to
+    improve efficiency.
+  </p>
+
+  <span>High Opportunity</span>
+
+</div>
+
+<div className="opportunity-card high">
+
+  <div className="finding-title">PRIORITY 4</div>
+
+  <h3>🤖 Technology & AI™</h3>
+
+  <p>
+    Modern AI solutions can improve responsiveness, reporting, and
+    day-to-day business performance.
+  </p>
+
+  <span>Immediate Opportunity</span>
+
+</div>
+
+<div className="opportunity-card moderate">
+
+  <div className="finding-title">PRIORITY 5</div>
+
+  <h3>👥 Employee Growth™</h3>
+
+  <p>
+    Supporting employee development can improve retention, engagement,
+    and long-term business stability.
+  </p>
+
+  <span>Moderate Opportunity</span>
+
+</div>
+
+<div className="opportunity-card low">
+
+  <div className="finding-title">FOUNDATION</div>
+
+  <h3>📊 Business Intelligence™</h3>
+
+  <p>
+    Better reporting and performance visibility help leadership make
+    informed business decisions.
+  </p>
+
+  <span>Foundation Strength</span>
+
+</div>
+
+</div>
 
 </section>
 
@@ -387,87 +530,41 @@ export default function ExecutiveSnapshot() {
   </section>
   
 
- <section className="action-guide-section">
+ <div className="action-footer">
 
-  <div className="section-heading">
+    <div className="action-metric">
 
-    <span className="section-eyebrow">
-      Business Growth Action Guide™
-    </span>
+        <small>Priority</small>
 
-    <h2>
-      Recommended Next Steps
-    </h2>
-
-    <p>
-      The following recommendations are designed to help strengthen your business,
-      improve efficiency, and create sustainable long-term growth. Whether you
-      implement these recommendations yourself or work with a trusted advisor,
-      they represent practical actions that can positively impact your business.
-    </p>
-
-  </div>
-
-  <div className="action-card">
-
-    <h3>
-      Revenue Growth™
-    </h3>
-
-    <h4>Why This Matters</h4>
-
-    <p>
-      Businesses that respond faster, follow up consistently, and eliminate
-      missed opportunities generally convert more prospects into customers.
-    </p>
-
-    <h4>Recommended Actions</h4>
-
-    <ul>
-
-      <li>Improve lead response time.</li>
-
-      <li>Create a consistent follow-up process.</li>
-
-      <li>Review missed opportunities weekly.</li>
-
-      <li>Measure conversion performance.</li>
-
-      <li>Automate repetitive customer communication where appropriate.</li>
-
-    </ul>
-
-    <div className="action-footer">
-
-      <div>
-
-        <strong>Difficulty</strong>
-
-        <p>Moderate</p>
-
-      </div>
-
-      <div>
-
-        <strong>Business Impact</strong>
-
-        <p>High</p>
-
-      </div>
-
-      <div>
-
-        <strong>Timeline</strong>
-
-        <p>30–90 Days</p>
-
-      </div>
+        <strong>HIGH</strong>
 
     </div>
 
-  </div>
+    <div className="action-metric">
 
-</section>
+        <small>Timeline</small>
+
+        <strong>30–60 Days</strong>
+
+    </div>
+
+    <div className="action-metric">
+
+        <small>Business Impact</small>
+
+        <strong>Revenue Growth</strong>
+
+    </div>
+
+    <div className="action-metric">
+
+        <small>Difficulty</small>
+
+        <strong>Moderate</strong>
+
+    </div>
+
+</div>
 
 {/* ==========================================
     EXECUTIVE BUSINESS GROWTH BRIEF™

@@ -10,10 +10,13 @@ export default function AssessmentSidebar({ currentStep }) {
     "Executive Review",
   ];
 
-  const progress = Math.round(((currentStep + 1) / steps.length) * 100);
+const progress = Math.round(((currentStep + 1) / steps.length) * 100);
+
+
+
 
   return (
-    <aside className="brief-sidebar">
+   <aside className="brief-sidebar">
 
       <div className="sidebar-logo">
 
@@ -21,9 +24,9 @@ export default function AssessmentSidebar({ currentStep }) {
           Business Growth IQ™
         </span>
 
-        <h2>
-          Executive Growth Dashboard
-        </h2>
+      <h2>
+  Executive Growth Dashboard
+</h2>
 
         <div className="sidebar-score">
 

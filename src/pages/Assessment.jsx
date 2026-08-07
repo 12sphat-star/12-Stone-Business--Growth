@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import AssessmentHeader from "../components/assessment/AssessmentHeader";
 import AssessmentSidebar from "../components/assessment/AssessmentSidebar";
@@ -12,13 +13,17 @@ import TechnologyStep from "../components/assessment/TechnologyStep";
 import PrioritiesStep from "../components/assessment/PrioritiesStep";
 import ReviewStep from "../components/assessment/ReviewStep";
 
-import "../styles/executiveBrief.css";
+import "../styles/assessment.css";
 
 export default function Assessment() {
 
   const [step, setStep] = useState(0);
 
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+
+  const totalSteps = 8;
+  const progress = Math.round(((step + 1) / totalSteps) * 100);
 
   const handleChange = (e) => {
     setFormData({
@@ -103,15 +108,17 @@ export default function Assessment() {
     }
   };
 
-  return (
+ return (
 
-    <main className="brief-page">
+  <main className="assessment-page">
+
+    <div className="brief-layout">
 
       <AssessmentSidebar currentStep={step} />
 
-      <section className="brief-container">
+      <section className="assessment-container">
 
-        <AssessmentHeader />
+        <AssessmentHeader progress={progress} />
 
         {renderStep()}
 
@@ -128,17 +135,24 @@ export default function Assessment() {
               Next
             </button>
           ) : (
-            <button>
-              Submit Assessment
-            </button>
+            <button
+  onClick={() =>
+    navigate("/snapshot", {
+      state: formData,
+    })
+  }
+>
+  Generate Executive Snapshot™
+</button>
           )}
 
         </div>
 
       </section>
 
-    </main>
+    </div>
 
-  );
+  </main>
 
+);
 }

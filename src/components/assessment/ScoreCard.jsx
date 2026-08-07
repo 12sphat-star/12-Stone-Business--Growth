@@ -6,14 +6,28 @@ export default function ScoreCard({
   name,
   value,
   onChange,
+  options,
 }) {
-  const ratings = [
-    { value: "1", title: "Needs Immediate Attention", color: "#dc2626" },
-    { value: "2", title: "Needs Improvement", color: "#f59e0b" },
-    { value: "3", title: "Average", color: "#eab308" },
-    { value: "4", title: "Strong", color: "#16a34a" },
-    { value: "5", title: "Industry Leader", color: "#2563eb" },
+
+  const defaultOptions = [
+    "Needs Immediate Attention",
+    "Needs Improvement",
+    "Average",
+    "Strong",
+    "Industry Leader",
   ];
+
+  const ratings = (options || defaultOptions).map((option, index) => ({
+    value: String(index + 1),
+    title: option,
+    color: [
+      "#dc2626",
+      "#f59e0b",
+      "#eab308",
+      "#16a34a",
+      "#2563eb",
+    ][index],
+  }));
 
   return (
     <div className="score-card">
@@ -21,6 +35,10 @@ export default function ScoreCard({
       <h3>{label}</h3>
 
       <p>{description}</p>
+
+      <div className="score-instruction">
+        Choose the statement that best describes your business today.
+      </div>
 
       <div className="score-options">
 
@@ -57,7 +75,9 @@ export default function ScoreCard({
               }}
             />
 
-            {rating.title}
+            <span className="score-title">
+              {rating.title}
+            </span>
 
           </button>
 

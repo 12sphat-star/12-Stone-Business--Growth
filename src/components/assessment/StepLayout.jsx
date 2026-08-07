@@ -4,7 +4,7 @@ export default function StepLayout({
 
   return (
 
-    <section className="brief-section">
+   <section className="assessment-section">
 
       {children}
 

@@ -198,17 +198,7 @@ padding:20px;
 
 }
 
-.snapshot-dashboard{
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:28px;
-
-    margin:45px 0;
-
-}
 
 .dashboard-card{
 
@@ -352,13 +342,65 @@ margin-top:30px;
 
 .opportunity-card{
 
-background:white;
+    background:#ffffff;
 
-padding:30px;
+    padding:36px;
 
-border-radius:18px;
+    border-radius:22px;
 
-text-align:center;
+    border:1px solid #e2e8f0;
+
+    box-shadow:0 15px 35px rgba(15,23,42,.08);
+
+    transition:all .25s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.opportunity-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 22px 45px rgba(15,23,42,.14);
+
+}
+
+.opportunity-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:6px;
+
+    height:100%;
+
+    background:#16a34a;
+
+}
+
+.opportunity-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 18px 40px rgba(15,23,42,.12);
+
+}
+
+.opportunity-card p{
+
+margin:18px 0 22px;
+
+line-height:1.7;
+
+color:#64748b;
 
 }
 
@@ -378,25 +420,61 @@ font-weight:700;
 
 .high span{
 
-background:#fee2e2;
+    display:inline-block;
 
-color:#b91c1c;
+    margin-top:22px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    font-weight:700;
+
+    font-size:.9rem;
 
 }
 
 .moderate span{
 
-background:#fef3c7;
+    display:inline-block;
 
-color:#92400e;
+    margin-top:22px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    font-weight:700;
+
+    font-size:.9rem;
 
 }
 
 .low span{
 
-background:#dcfce7;
+    display:inline-block;
 
-color:#166534;
+    margin-top:22px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+    font-weight:700;
+
+    font-size:.9rem;
 
 }
 
@@ -689,6 +767,7 @@ margin-top:30px;
 
 }
 
+
 .dashboard-card{
 
 background:#fff;
@@ -820,13 +899,67 @@ margin:80px 0;
 
 background:#ffffff;
 
-padding:40px;
+padding:50px;
 
-border-radius:20px;
-
-box-shadow:0 12px 30px rgba(15,23,42,.08);
+border-radius:24px;
 
 border:1px solid #e5e7eb;
+
+box-shadow:0 18px 45px rgba(15,23,42,.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.action-next-step{
+
+margin-top:35px;
+
+padding:28px;
+
+background:#f8fafc;
+
+border-radius:18px;
+
+border-left:5px solid #2563eb;
+
+}
+
+.action-next-step h4{
+
+margin-bottom:12px;
+
+color:#071426;
+
+}
+
+.action-next-step p{
+
+margin:0;
+
+line-height:1.8;
+
+color:#475569;
+
+}
+
+.action-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:6px;
+
+background:linear-gradient(90deg,#16a34a,#2563eb);
 
 }
 
@@ -857,30 +990,63 @@ line-height:2;
 margin:20px 0;
 
 }
-
 .action-footer{
 
 display:grid;
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(4,1fr);
 
-gap:20px;
+gap:18px;
 
 margin-top:35px;
 
-padding-top:25px;
+padding-top:28px;
 
 border-top:1px solid #e5e7eb;
 
 }
 
-.action-footer strong{
+.action-metric{
+
+background:#f8fafc;
+
+padding:18px;
+
+border-radius:14px;
+
+border:1px solid #e5e7eb;
+
+text-align:center;
+
+}
+
+.action-metric small{
 
 display:block;
 
+font-size:.75rem;
+
+text-transform:uppercase;
+
+letter-spacing:1px;
+
+color:#64748b;
+
 margin-bottom:8px;
 
+font-weight:700;
+
+}
+
+.action-metric strong{
+
+display:block;
+
+font-size:1rem;
+
 color:#071426;
+
+margin:0;
 
 }
 
@@ -888,11 +1054,151 @@ color:#071426;
 
 .action-footer{
 
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.action-footer{
+
 grid-template-columns:1fr;
 
 }
+
+}
+
 .action-card {
   background: red !important;
   border: 8px solid black !important;
 }
+
+/* ==========================================
+   BUSINESS GROWTH OBSERVATIONS
+========================================== */
+
+.observations-section{
+    margin:80px 0;
+}
+
+.observations-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    margin-top:40px;
+}
+
+.observation-card{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:32px;
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+    transition:all .25s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.observation-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(15,23,42,.12);
+}
+
+.observation-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:6px;
+    height:100%;
+    background:#16a34a;
+}
+
+.observation-card h3{
+    font-size:1.35rem;
+    color:#071426;
+    margin-bottom:18px;
+}
+
+.observation-card p{
+    color:#64748b;
+    line-height:1.8;
+    margin:0;
+}
+
+@media(max-width:900px){
+
+.observations-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* ==========================================
+   TOP THREE BUSINESS GROWTH OPPORTUNITIES
+========================================== */
+
+.top-opportunities-section{
+    margin:80px 0;
+}
+
+.top-opportunities-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    margin-top:40px;
+}
+
+.growth-opportunity-card{
+    background:#ffffff;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    padding:32px;
+    box-shadow:0 12px 30px rgba(15,23,42,.08);
+    transition:all .25s ease;
+}
+
+.growth-opportunity-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(15,23,42,.12);
+}
+
+.opportunity-number{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#071426;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.impact-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-top:1px solid #e5e7eb;
+}
+
+.impact-row span{
+    color:#64748b;
+}
+
+.impact-row strong{
+    color:#071426;
+}
+
+@media (max-width:900px){
+
+    .top-opportunities-grid{
+        grid-template-columns:1fr;
+    }
+
 }
